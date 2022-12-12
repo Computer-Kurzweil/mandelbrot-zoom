@@ -21,20 +21,20 @@ import static java.lang.Thread.State.NEW;
 @Getter
 @ToString(callSuper = false, exclude={"ctx","controller","tab"})
 @EqualsAndHashCode(callSuper = false, exclude={"ctx","controller","tab"})
-public class SimulatedEvolutionContext extends ForkJoinTask<Void> implements TabContext, SimulatedEvolution {
+public class MandelbrotZoomContext extends ForkJoinTask<Void> implements TabContext, MandelbrotZoom {
 
     private static final long serialVersionUID = 242L;
 
     private final ComputerKurzweilContext ctx;
-    private final SimulatedEvolutionTab tab;
-    private final SimulatedEvolutionCanvas canvas;
+    private final MandelbrotZoomTab tab;
+    private final MandelbrotZoomCanvas canvas;
     private final SimulatedEvolutionModel tabModel;
 
     @Setter
-    private SimulatedEvolutionController controller;
+    private MandelbrotZoomController controller;
 
-    public SimulatedEvolutionContext(
-        SimulatedEvolutionTab tab,
+    public MandelbrotZoomContext(
+        MandelbrotZoomTab tab,
         ComputerKurzweilContext ctx
     ) {
        this.tab = tab;
@@ -43,22 +43,22 @@ public class SimulatedEvolutionContext extends ForkJoinTask<Void> implements Tab
         int width = 320 * scale;
         int height = 234 * scale;
         WorldPoint worldDimensions = new WorldPoint(width,height);
-       this.canvas = new SimulatedEvolutionCanvas(  worldDimensions );
+       this.canvas = new MandelbrotZoomCanvas(  worldDimensions );
        this.tabModel = this.canvas.getTabModel();
-       this.controller = new SimulatedEvolutionController();
+       this.controller = new MandelbrotZoomController();
     }
 
     @Override
     public void stopController() {
         this.controller.exit();
         this.controller = null;
-        this.controller = new SimulatedEvolutionController();
+        this.controller = new MandelbrotZoomController();
     }
 
     @Override
     public void startController() {
         if(this.controller == null){
-            this.controller = new SimulatedEvolutionController();
+            this.controller = new MandelbrotZoomController();
         } else {
             if(this.controller.getState() != NEW){
                 this.stopController();

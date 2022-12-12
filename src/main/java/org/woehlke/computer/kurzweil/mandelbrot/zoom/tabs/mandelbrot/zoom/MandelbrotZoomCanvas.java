@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Log4j2
 @Getter
-public class SimulatedEvolutionCanvas extends JComponent implements TabCanvas, SimulatedEvolution {
+public class MandelbrotZoomCanvas extends JComponent implements TabCanvas, MandelbrotZoom {
 
     static final long serialVersionUID = 242L;
 
@@ -38,7 +38,7 @@ public class SimulatedEvolutionCanvas extends JComponent implements TabCanvas, S
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
 
-    public SimulatedEvolutionCanvas(WorldPoint worldDimensions) {
+    public MandelbrotZoomCanvas(WorldPoint worldDimensions) {
         this.worldDimensions = worldDimensions;
         this.setBackground(WATER);
         this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());

@@ -7,8 +7,8 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.Updateable;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTab;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.TabPanel;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolution;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomContext;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionModel;
 
 /**
@@ -19,19 +19,19 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.Simula
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class GardenOfEdenPanelRow extends SubTabImpl implements SimulatedEvolution, Updateable, SubTab {
+public class GardenOfEdenPanelRow extends SubTabImpl implements MandelbrotZoom, Updateable, SubTab {
 
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final MandelbrotZoomContext tabCtx;
     @ToString.Exclude
     private final SimulatedEvolutionModel tabModel;
     private final GardenOfEdenCheckBox gardenOfEdenEnabled;
     private final GardenOfEdenToggleButton buttonToggleGardenOfEden;
     //private final GardenOfEdenPanel gardenOfEdenPanel;
 
-    public GardenOfEdenPanelRow(SimulatedEvolutionContext tabCtx) {
+    public GardenOfEdenPanelRow(MandelbrotZoomContext tabCtx) {
         super("Garden of Eden",tabCtx.getCtx().getProperties());
         this.tabCtx = tabCtx;
         this.tabModel = this.tabCtx.getTabModel();

@@ -28,7 +28,7 @@ import java.io.Serializable;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = false)
-public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, MenuContainer, Serializable, Accessible, SimulatedEvolution {
+public class MandelbrotZoomApplet extends JApplet implements ImageObserver, MenuContainer, Serializable, Accessible, MandelbrotZoom {
 
     private static final long serialVersionUID = 242L;
 
@@ -37,12 +37,12 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
     /**
      * ControllerThread for Interachtions between Model and View (MVC-Pattern).
      */
-    private SimulatedEvolutionController simulatedEvolutionController;
+    private MandelbrotZoomController simulatedEvolutionController;
 
     /**
      * The View for the World. Food and Cells are painted to the Canvas.
      */
-    private SimulatedEvolutionCanvas canvas;
+    private MandelbrotZoomCanvas canvas;
 
     /**
      * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
@@ -55,10 +55,10 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
         int height = 234 * scale;
         this.setLayout(new BorderLayout());
         this.add(title, BorderLayout.NORTH);
-        simulatedEvolutionController = new SimulatedEvolutionController();
+        simulatedEvolutionController = new MandelbrotZoomController();
         WorldPoint worldDimensions = new WorldPoint(width,height);
         simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions);
-        canvas = new SimulatedEvolutionCanvas(worldDimensions);
+        canvas = new MandelbrotZoomCanvas(worldDimensions);
         canvas.setTabModel(simulatedEvolutionModel);
         this.add(canvas, BorderLayout.CENTER);
         simulatedEvolutionController.setCanvas(canvas);

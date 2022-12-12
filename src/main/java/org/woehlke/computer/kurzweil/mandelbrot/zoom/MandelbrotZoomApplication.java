@@ -2,23 +2,23 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom;
 
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.application.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionTab;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomTab;
 
 /**
  * Class with main Method for Starting the Desktop Application.
  *
- * @see SimulatedEvolutionTab
+ * @see MandelbrotZoomTab
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  */
 @Log4j2
-public class SimulatedEvolutionApplication {
+public class MandelbrotZoomApplication {
 
-    private SimulatedEvolutionApplication(String configFileName, String jarFilePath) {
+    private MandelbrotZoomApplication(String configFileName, String jarFilePath) {
         ComputerKurzweilProperties properties = ComputerKurzweilProperties.propertiesFactory(configFileName, jarFilePath);
-        SimulatedEvolutionTab simulatedEvolutionTab = new SimulatedEvolutionTab(properties);
+        MandelbrotZoomTab simulatedEvolutionTab = new MandelbrotZoomTab(properties);
     }
 
     /**
@@ -28,6 +28,6 @@ public class SimulatedEvolutionApplication {
     public static void main(String[] args) {
         String configFileName = "application.yml";
         String jarFilePath = "target/mandelbrot-zoom.jar";
-        SimulatedEvolutionApplication application = new SimulatedEvolutionApplication(configFileName,jarFilePath);
+        MandelbrotZoomApplication application = new MandelbrotZoomApplication(configFileName,jarFilePath);
     }
 }

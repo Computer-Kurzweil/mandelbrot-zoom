@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolution;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.LifeCycleStatus;
 
 /**
@@ -17,7 +17,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimulatedEvolutionPopulation implements SimulatedEvolution {
+public class MandelbrotZoomPopulation implements MandelbrotZoom {
 
    private static final long serialVersionUID = 242L;
 

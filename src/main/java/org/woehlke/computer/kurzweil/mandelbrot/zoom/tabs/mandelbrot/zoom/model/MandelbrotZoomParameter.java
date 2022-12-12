@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model;
 
 import lombok.*;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolution;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -14,7 +14,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.Simula
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimulatedEvolutionParameter implements SimulatedEvolution {
+public class MandelbrotZoomParameter implements MandelbrotZoom {
 
     private static final long serialVersionUID = 242L;
 

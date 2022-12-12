@@ -8,5 +8,5 @@ import java.io.Serializable;
  * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  */
-public interface SimulatedEvolution extends Serializable {
+public interface MandelbrotZoom extends Serializable {
 }

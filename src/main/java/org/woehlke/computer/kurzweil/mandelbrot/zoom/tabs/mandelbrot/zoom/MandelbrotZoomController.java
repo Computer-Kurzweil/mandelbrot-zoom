@@ -14,7 +14,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.tabs.TabController;
  * Time: 00:36:20
  */
 @Log4j2
-public class SimulatedEvolutionController extends Thread implements Runnable, TabController, SimulatedEvolution {
+public class MandelbrotZoomController extends Thread implements Runnable, TabController, MandelbrotZoom {
 
     private static final long serialVersionUID = 242L;
 
@@ -28,7 +28,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Ta
      * Canvas, where to paint in the GUI.
      */
     @Setter
-    private SimulatedEvolutionCanvas canvas;
+    private MandelbrotZoomCanvas canvas;
 
     /**
      * Time to Wait in ms.
@@ -40,7 +40,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Ta
      */
     private Boolean mySemaphore;
 
-    public SimulatedEvolutionController() {
+    public MandelbrotZoomController() {
         mySemaphore = Boolean.TRUE;
     }
 

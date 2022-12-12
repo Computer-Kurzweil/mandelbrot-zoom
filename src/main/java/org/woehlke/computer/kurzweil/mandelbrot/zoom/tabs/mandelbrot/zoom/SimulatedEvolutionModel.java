@@ -7,7 +7,7 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.tabs.TabModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.Cell;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.SimulatedEvolutionParameter;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.MandelbrotZoomParameter;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.SimulatedEvolutionWorldLattice;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.WorldPoint;
 
@@ -67,7 +67,7 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
     //private SimulatedEvolutionPopulationContainer simulatedEvolutionPopulationContainer;
 
     @Getter
-    private SimulatedEvolutionParameter simulatedEvolutionParameter;
+    private MandelbrotZoomParameter simulatedEvolutionParameter;
 
     public SimulatedEvolutionModel(WorldPoint worldDimensions) {
         long seed = new Date().getTime();
@@ -75,7 +75,7 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
         this.worldDimensions = worldDimensions;
         simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,random);
         createPopulation();
-        simulatedEvolutionParameter = new SimulatedEvolutionParameter();
+        simulatedEvolutionParameter = new MandelbrotZoomParameter();
         //simulatedEvolutionPopulationContainer = new SimulatedEvolutionPopulationContainer(tabCtx);
     }
 

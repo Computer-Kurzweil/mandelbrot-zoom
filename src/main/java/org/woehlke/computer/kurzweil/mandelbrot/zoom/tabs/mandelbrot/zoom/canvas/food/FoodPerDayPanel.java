@@ -7,8 +7,8 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.Updateable;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTab;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.TabPanel;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolution;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomContext;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionModel;
 
 /**
@@ -19,12 +19,12 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.Simula
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class FoodPerDayPanel extends SubTabImpl implements SimulatedEvolution, Updateable, SubTab {
+public class FoodPerDayPanel extends SubTabImpl implements MandelbrotZoom, Updateable, SubTab {
 
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final MandelbrotZoomContext tabCtx;
     private final String foodPerDayBorderLabel;
     private final FoodPerDayLabel foodPerDayLabel;
     private final FoodPerDayTextField foodPerDayTextField;
@@ -32,7 +32,7 @@ public class FoodPerDayPanel extends SubTabImpl implements SimulatedEvolution, U
     private final FoodPerDayDecreaseButton foodPerDayDecreaseButton;
     private final SimulatedEvolutionModel tabModel;
 
-    public FoodPerDayPanel(SimulatedEvolutionContext tabCtx) {
+    public FoodPerDayPanel(MandelbrotZoomContext tabCtx) {
         super(tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel(),tabCtx.getCtx().getProperties());
         this.tabCtx = tabCtx;
         this.tabModel = this.tabCtx.getTabModel();

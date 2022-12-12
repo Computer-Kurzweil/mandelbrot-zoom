@@ -9,10 +9,10 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.Updateable;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTab;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTabImpl;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolution;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomContext;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.LifeCycleStatus;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.population.SimulatedEvolutionPopulation;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.population.MandelbrotZoomPopulation;
 
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
@@ -26,7 +26,7 @@ import java.awt.*;
 @Getter
 @ToString(callSuper = true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
 @EqualsAndHashCode(callSuper=true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
-public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements SimulatedEvolution, SubTab, Updateable {
+public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements MandelbrotZoom, SubTab, Updateable {
 
     private static final long serialVersionUID = 242L;
 
@@ -45,15 +45,15 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final String hungryCellsLabel;
     private final String oldCellsLabel;
 
-    private final SimulatedEvolutionContext tabCtx;
+    private final MandelbrotZoomContext tabCtx;
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
     private final FlowLayout layoutSubPanel;
 
-    private SimulatedEvolutionPopulation population;
+    private MandelbrotZoomPopulation population;
 
     public PopulationStatisticsElementsPanelLifeCycle(
-      SimulatedEvolutionContext tabCtx
+      MandelbrotZoomContext tabCtx
     ) {
         super(tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),tabCtx.getCtx().getProperties());
         this.tabCtx = tabCtx;
