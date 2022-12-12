@@ -5,8 +5,8 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.Startable;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.model.LatticePoint;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.simulatedevolution.model.CellCore;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.simulatedevolution.model.LifeCycle;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.CellCore;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.LifeCycle;
 
 import javax.swing.*;
 import javax.swing.border.Border;

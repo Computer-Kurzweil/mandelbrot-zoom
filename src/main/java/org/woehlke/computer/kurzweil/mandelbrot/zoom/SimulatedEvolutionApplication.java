@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom;
 
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.application.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.simulatedevolution.SimulatedEvolutionTab;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionTab;
 
 /**
  * Class with main Method for Starting the Desktop Application.
