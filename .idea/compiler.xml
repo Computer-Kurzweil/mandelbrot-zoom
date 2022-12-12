@@ -9,12 +9,16 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="simulatedevolution" />
+        <module name="mandelbrot-zoom" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="simulatedevolution" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mandelbrot-zoom" options="-Xlint:all" />
       <module name="simulatedevolution" options="-Xlint:all" />
     </option>
   </component>
