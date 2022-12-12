@@ -8,7 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.tabs.TabModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.Cell;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.MandelbrotZoomParameter;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.SimulatedEvolutionWorldLattice;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.MandelbrotZoomWorldLattice;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.model.WorldPoint;
 
 import java.io.Serializable;
@@ -22,7 +22,7 @@ import java.util.Random;
  * It is the Data Model of the Simulation in a MVC Pattern.
  *
  * @see Cell
- * @see SimulatedEvolutionWorldLattice
+ * @see MandelbrotZoomWorldLattice
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://java.woehlke.org/simulated-evolution/
@@ -34,7 +34,7 @@ import java.util.Random;
 @Log4j2
 @ToString(exclude = {"random"})
 @EqualsAndHashCode(exclude = {"random"})
-public class SimulatedEvolutionModel implements Serializable, TabModel {
+public class MandelbrotZoomModel implements Serializable, TabModel {
 
     static final long serialVersionUID = 242L;
 
@@ -61,7 +61,7 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
     /**
      * Map of the World monitoring growth and eating food.
      */
-    private SimulatedEvolutionWorldLattice simulatedEvolutionWorldLattice;
+    private MandelbrotZoomWorldLattice mandelbrotZoomWorldLattice;
 
     //@Getter
     //private SimulatedEvolutionPopulationContainer simulatedEvolutionPopulationContainer;
@@ -69,11 +69,11 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
     @Getter
     private MandelbrotZoomParameter simulatedEvolutionParameter;
 
-    public SimulatedEvolutionModel(WorldPoint worldDimensions) {
+    public MandelbrotZoomModel(WorldPoint worldDimensions) {
         long seed = new Date().getTime();
         random = new Random(seed);
         this.worldDimensions = worldDimensions;
-        simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,random);
+        mandelbrotZoomWorldLattice = new MandelbrotZoomWorldLattice(this.worldDimensions,random);
         createPopulation();
         simulatedEvolutionParameter = new MandelbrotZoomParameter();
         //simulatedEvolutionPopulationContainer = new SimulatedEvolutionPopulationContainer(tabCtx);
@@ -104,7 +104,7 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
      * Every Cell moves, eats, dies of hunger, and it has sex: splitting into two children with changed DNA.
      */
     public void letLivePopulation() {
-        simulatedEvolutionWorldLattice.letFoodGrow();
+        mandelbrotZoomWorldLattice.letFoodGrow();
         WorldPoint pos;
         List<Cell> children = new ArrayList<Cell>();
         List<Cell> died = new ArrayList<Cell>();
@@ -114,7 +114,7 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
                 died.add(cell);
             } else {
                 pos = cell.getPosition();
-                int food = simulatedEvolutionWorldLattice.eat(pos);
+                int food = mandelbrotZoomWorldLattice.eat(pos);
                 cell.eat(food);
                 if (cell.isPregnant()) {
                     Cell child = cell.performReproductionByCellDivision();
@@ -133,6 +133,6 @@ public class SimulatedEvolutionModel implements Serializable, TabModel {
     }
 
     public boolean hasFood(int x, int y) {
-        return simulatedEvolutionWorldLattice.hasFood(x,y);
+        return mandelbrotZoomWorldLattice.hasFood(x,y);
     }
 }

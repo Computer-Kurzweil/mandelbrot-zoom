@@ -9,7 +9,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.TabPanel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomContext;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomModel;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -26,7 +26,7 @@ public class GardenOfEdenPanelRow extends SubTabImpl implements MandelbrotZoom, 
     @ToString.Exclude
     private final MandelbrotZoomContext tabCtx;
     @ToString.Exclude
-    private final SimulatedEvolutionModel tabModel;
+    private final MandelbrotZoomModel tabModel;
     private final GardenOfEdenCheckBox gardenOfEdenEnabled;
     private final GardenOfEdenToggleButton buttonToggleGardenOfEden;
     //private final GardenOfEdenPanel gardenOfEdenPanel;

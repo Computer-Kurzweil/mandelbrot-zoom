@@ -31,7 +31,7 @@ public class MandelbrotZoomCanvas extends JComponent implements TabCanvas, Mande
      * Reference to the Data Model.
      */
     @Setter
-    private SimulatedEvolutionModel tabModel;
+    private MandelbrotZoomModel tabModel;
 
     private WorldPoint worldDimensions;
 

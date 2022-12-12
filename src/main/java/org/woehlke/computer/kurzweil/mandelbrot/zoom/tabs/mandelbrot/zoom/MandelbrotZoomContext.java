@@ -28,7 +28,7 @@ public class MandelbrotZoomContext extends ForkJoinTask<Void> implements TabCont
     private final ComputerKurzweilContext ctx;
     private final MandelbrotZoomTab tab;
     private final MandelbrotZoomCanvas canvas;
-    private final SimulatedEvolutionModel tabModel;
+    private final MandelbrotZoomModel tabModel;
 
     @Setter
     private MandelbrotZoomController controller;

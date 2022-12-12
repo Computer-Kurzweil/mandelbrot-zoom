@@ -22,7 +22,7 @@ public class MandelbrotZoomController extends Thread implements Runnable, TabCon
      * Data Model for the Simulation
      */
     @Setter
-    private SimulatedEvolutionModel simulatedEvolutionModel;
+    private MandelbrotZoomModel mandelbrotZoomModel;
 
     /**
      * Canvas, where to paint in the GUI.
@@ -50,7 +50,7 @@ public class MandelbrotZoomController extends Thread implements Runnable, TabCon
             synchronized (mySemaphore) {
                 doMyJob = mySemaphore.booleanValue();
             }
-            simulatedEvolutionModel.letLivePopulation();
+            mandelbrotZoomModel.letLivePopulation();
             canvas.repaint();
             try {
                 sleep(TIME_TO_WAIT);

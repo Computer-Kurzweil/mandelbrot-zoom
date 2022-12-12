@@ -9,7 +9,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.commons.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.TabPanel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoom;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomContext;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.tabs.mandelbrot.zoom.MandelbrotZoomModel;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -30,7 +30,7 @@ public class FoodPerDayPanel extends SubTabImpl implements MandelbrotZoom, Updat
     private final FoodPerDayTextField foodPerDayTextField;
     private final FoodPerDayIncreaseButton foodPerDayIncreaseButton;
     private final FoodPerDayDecreaseButton foodPerDayDecreaseButton;
-    private final SimulatedEvolutionModel tabModel;
+    private final MandelbrotZoomModel tabModel;
 
     public FoodPerDayPanel(MandelbrotZoomContext tabCtx) {
         super(tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel(),tabCtx.getCtx().getProperties());

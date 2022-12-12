@@ -47,7 +47,7 @@ public class MandelbrotZoomApplet extends JApplet implements ImageObserver, Menu
     /**
      * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
      */
-    private SimulatedEvolutionModel simulatedEvolutionModel;
+    private MandelbrotZoomModel mandelbrotZoomModel;
 
     public void init() {
         int scale = 2;
@@ -57,12 +57,12 @@ public class MandelbrotZoomApplet extends JApplet implements ImageObserver, Menu
         this.add(title, BorderLayout.NORTH);
         simulatedEvolutionController = new MandelbrotZoomController();
         WorldPoint worldDimensions = new WorldPoint(width,height);
-        simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions);
+        mandelbrotZoomModel = new MandelbrotZoomModel(worldDimensions);
         canvas = new MandelbrotZoomCanvas(worldDimensions);
-        canvas.setTabModel(simulatedEvolutionModel);
+        canvas.setTabModel(mandelbrotZoomModel);
         this.add(canvas, BorderLayout.CENTER);
         simulatedEvolutionController.setCanvas(canvas);
-        simulatedEvolutionController.setSimulatedEvolutionModel(simulatedEvolutionModel);
+        simulatedEvolutionController.setMandelbrotZoomModel(mandelbrotZoomModel);
         simulatedEvolutionController.start();
     }
 
