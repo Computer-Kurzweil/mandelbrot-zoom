@@ -15,6 +15,12 @@ import java.awt.*;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see ApplicationModel
+ * @see Dimension
+ * @see JComponent
+ * @see Graphics
+ * @see Color
+ *
  * Date: 05.02.2006
  * Time: 00:51:51
  */

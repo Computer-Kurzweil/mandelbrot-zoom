@@ -11,6 +11,8 @@ import java.util.Objects;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see GaussianNumberPlane
+ *
  * Date: 04.02.2006
  * Time: 23:47:05
  */

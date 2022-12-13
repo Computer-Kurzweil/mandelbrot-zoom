@@ -5,7 +5,6 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.panels.PanelButtons;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.panels.PanelCopyright;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.panels.PanelSubtitle;
 
 import javax.accessibility.Accessible;
@@ -62,13 +61,9 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         this.controllerThread = new ControllerThread(applicationModel, this);
         PanelButtons panelButtons = new PanelButtons(this.applicationModel);
         PanelSubtitle panelSubtitle = new PanelSubtitle(config.getSubtitle());
-        PanelCopyright panelCopyright = new PanelCopyright(config.getCopyright());
-        JSeparator separator = new JSeparator();
         rootPane.setLayout(layout);
         rootPane.add(panelSubtitle);
         rootPane.add(canvas);
-        rootPane.add(panelCopyright);
-        rootPane.add(separator);
         rootPane.add(panelButtons);
         this.addWindowListener(this);
         this.canvas.addMouseListener(   this);

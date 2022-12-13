@@ -18,6 +18,7 @@ import java.util.Deque;
  *
  * @see ComplexNumber
  * @see Point
+ * @see ApplicationModel
  *
  * Created by tw on 16.12.2019.
  */
