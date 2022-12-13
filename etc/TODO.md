@@ -1,14 +1,11 @@
 # TODO
 
-# 2.2.1
-* https://www.torsten-horn.de/techdocs/maven.htm
-
-Fixed #17, Fixed #19, Fixed #20, Fixed #21
-
-# 2.2.2
-Fixed #22, Fixed #18
+# 2.1.1
+Fixed #7, Fixed #8, Fixed #9
 
 # 3.0.0
-fixed #30 update to java 17
-fixed #31 setup maven project reports site
-
+fixed #14 update to java 17
+fixed #13 setup maven project reports site
+fixed #9  Setup Travis CI or Circle CI
+fixed #8  Setup Github CI
+fixed #7  migrate from gradle to maven

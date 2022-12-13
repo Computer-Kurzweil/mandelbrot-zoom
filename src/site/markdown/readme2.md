@@ -1,37 +1,63 @@
-# Simulated Evolution
+# Mandelbrot
 
-Artificial Life Simulation of Bacteria Motion depending on DNA
+![Java CI with Maven](https://github.com/Computer-Kurzweil/mandelbrot/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![Build Status](https://travis-ci.com/Computer-Kurzweil/mandelbrot.svg?branch=master)](https://travis-ci.com/Computer-Kurzweil/mandelbrot)
 
-* [Github Repository](https://github.com/Computer-Kurzweil/simulated-evolution)
-* [Blog](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
+**Computing the Edge of the Mandelbrot Set with a Turing Machine**
 
-## Abstract
+## Abstract: Mandelbrot Set
 
-Green food appears in a simulatedEvolutionModel with red moving cells. These cells eat the food if it is on their position.
-Movement of the cells depends on random and their DNA. A fit cell moves around and eats enough to reproduce.
-Reproduction is done by splitting the cell and randomly changing the DNA of the two new Cells.
-If a cell doesn't eat enough, it will first stand still and after a while it dies.
+The Mandelbrot set is the set of values of c in the complex plane for which the orbit of 0
+under iteration of the complex quadratic polynomial z_(n+1)=z_n^2+c remains bounded.
 
-## Run the Desktop Application
-````
-    git clone https://github.com/Computer-Kurzweil/simulated-evolution.git
-    cd simulated-evolution
-    ./mvnw
-````
+That is, a complex number c is part of the Mandelbrot set if, when starting with z0 = 0
+and applying the iteration repeatedly, the absolute value of zn remains bounded
+however large n gets.
 
-## Screenshot
+## The Turing Machine to Compute the Mandelbrot Set
+The Complex Number Plane is divided into Cells for the two dimensional Tape of the Turing-Machine.
+Starting with Complex Number of Cell right from the Mandelbrot Set the Turing Machine goes one Step to the left and computes, wether the Complex Number of the Cell is inside the Set. If not, it continues to go left.
+The Turing-Machine then goes around the Set by computing wether the Complex Number of the Cell is inside the Set. If not it turns left, else it turns right. After that it goes one step forward.
+After the Turing Machine finished to run around the Set, the Application paints the Inside of the Set Black und computes the Colors of the Outside.
 
-![Early Screen](img/screen1.png)
+## Julia Set
+The Mandelbrot Set is drawn into the Complex Number Plane and so clicking into it, it delivers the Complex Number to calculate a Julia Set for it.
+The most beautiful Julia Sets are drawn by clicking into the Border of the Mandelbrot Set.
 
-![Later Screen](img/screen2.png)
+## More
+* [https://en.wikipedia.org/wiki/Mandelbrot_set](https://en.wikipedia.org/wiki/Mandelbrot_set)
+* [https://en.wikipedia.org/wiki/Julia_set](https://en.wikipedia.org/wiki/Julia_set)
+* [https://en.wikipedia.org/wiki/Turing_machine](https://en.wikipedia.org/wiki/Turing_machine)
 
-## UML Class Model
-![UML Class Model](img/Class_Model.jpg)
+## Screenshots
 
-## Repositories
-* [Github Repository](https://github.com/Computer-Kurzweil/simulated-evolution)
-* [Maven Project Reports](https://java.woehlke.org/simulated-evolution/readme2.html)
+### Running around the Edge of the Mandelbrot Set
 
-## Blog Article
-[http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
+![Running around the Edge of the Mandelbrot Set](img/screen01.png)
 
+### Running around the Edge of the Mandelbrot Set
+
+![Running around the Edge of the Mandelbrot Set](img/screen02.png)
+
+### Computing the Area outside the Mandelbrot Set
+
+![Computing the Area outside the Mandelbrot Set](img/screen03.png)
+
+### Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set
+
+![Clicked somewhere on the Edge of Mandelbrot Set: The Julia Set](img/julia01.png)
+
+### Clicked  on another Point on the Edge of Mandelbrot Set: The Julia Set
+
+![Clicked on another Point on the Edge of Mandelbrot Set: The Julia Set](img/julia02.png)
+
+### Repositories
+* [Github Repository](https://github.com/Computer-Kurzweil/mandelbrot)
+* [Maven Project Reports](https://java.woehlke.org/mandelbrot/readme2.html)
+
+### Run the Application
+```
+git clone https://github.com/Computer-Kurzweil/mandelbrot.git
+cd mandelbrot
+./mvnw
+```

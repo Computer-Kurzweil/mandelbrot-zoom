@@ -7,9 +7,9 @@
     <version>3.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Mandelbrot Zoom</name>
-    <description>Artificial Life Simulation of Bacteria Motion depending on DNA</description>
-    <url>https://github.com/Computer-Kurzweil/simulated-evolution</url>
+    <name>Mandelbrot</name>
+    <description>Computing the Edge of the Mandelbrot Set with a Turing Machine</description>
+    <url>https://java.woehlke.org/mandelbrot</url>
     <inceptionYear>2013</inceptionYear>
 
     <scm>
@@ -27,7 +27,7 @@
     <distributionManagement>
         <site>
             <id>simulatedevolution.local</id>
-            <url>file://${user.home}/public_html/java/mandelbrot-zoom/</url>
+            <url>file://${user.home}/public_html/java/mandelbrot-zoom</url>
         </site>
         <snapshotRepository>
             <id>snapshots</id>
@@ -446,13 +446,6 @@
                 <type>maven-plugin</type>
                 <scope>provided</scope>
             </dependency>
-            <!--
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-collections4</artifactId>
-                <version>4.4</version>
-            </dependency>
-            -->
             <dependency>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -1028,7 +1021,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.woehlke.computer.kurzweil.mandelbrot.zoom.MandelbrotZoomApplication</mainClass>
+                    <mainClass>org.woehlke.computer.kurzweil.mandelbrot.MandelbrotSetApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -1153,5 +1146,6 @@
             </plugin>
         </plugins>
     </reporting>
+
 
 </project>

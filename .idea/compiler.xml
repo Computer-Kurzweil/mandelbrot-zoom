@@ -2,22 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for Simulated Evolution" enabled="true">
+      <profile name="Annotation profile for Mandelbrot" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="mandelbrot-zoom" />
+        <module name="mandelbrot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="mandelbrot-zoom" target="17" />
       <module name="simulatedevolution" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mandelbrot" options="-Xlint:all" />
       <module name="mandelbrot-zoom" options="-Xlint:all" />
       <module name="simulatedevolution" options="-Xlint:all" />
     </option>
