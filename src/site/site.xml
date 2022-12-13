@@ -23,10 +23,10 @@
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/mandelbrot-zoom/" />
         </links>
         <breadcrumbs>
-            <item name="Mandelbrot" href="readme2.html" />
+            <item name="Mandelbrot" href="index.html" />
         </breadcrumbs>
         <menu name="Main" inherit="top">
-            <item name="Home" href="readme2.html" />
+            <item name="Home" href="index.html" />
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/mandelbrot-zoom/" />
             <item name="Blog" href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html" />
             <item name="License" href="LICENSE.html" />
