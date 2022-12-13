@@ -16,6 +16,9 @@ import java.util.Deque;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see ComplexNumber
+ * @see Point
+ *
  * Created by tw on 16.12.2019.
  */
 public class GaussianNumberPlane {

@@ -12,6 +12,11 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumbe
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see GaussianNumberPlane
+ * @see TuringPositions
+ * @see TuringPhaseState
+ * @see ApplicationModel
+ *
  * Date: 28.08.13
  * Time: 12:39
  */

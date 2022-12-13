@@ -24,6 +24,17 @@ import java.io.Serializable;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see ControllerThread
+ * @see ApplicationCanvas
+ * @see ApplicationModel
+ *
+ * @see Rectangle
+ * @see Dimension
+ * @see JFrame
+ * @see MouseListener
+ * @see ImageObserver
+ * @see WindowListener
+ *
  * Date: 04.02.2006
  * Time: 18:47:46
  */
@@ -59,10 +70,10 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         rootPane.add(panelCopyright);
         rootPane.add(separator);
         rootPane.add(panelButtons);
-        addWindowListener(this);
+        this.addWindowListener(this);
         this.canvas.addMouseListener(   this);
-        showMeInit();
-        setModeSwitch();
+        this.showMeInit();
+        this.setModeSwitch();
         this.controllerThread.start();
     }
 

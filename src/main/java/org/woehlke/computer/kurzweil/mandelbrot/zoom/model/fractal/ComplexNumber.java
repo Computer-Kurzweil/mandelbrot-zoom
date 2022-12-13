@@ -11,6 +11,8 @@ import java.util.Objects;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see GaussianNumberPlane
+ *
  * Created by tw on 18.08.15.
  */
 public class ComplexNumber {

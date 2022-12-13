@@ -9,6 +9,8 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see TuringPhase
+ *
  * Created by tw on 16.12.2019.
  */
 public class TuringPhaseState {
