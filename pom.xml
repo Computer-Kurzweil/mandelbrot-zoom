@@ -4,7 +4,7 @@
 
     <groupId>org.woehlke.computer.kurzweil</groupId>
     <artifactId>mandelbrot-zoom</artifactId>
-    <version>3.0.2</version>
+    <version>3.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Mandelbrot Zoom</name>
@@ -16,7 +16,7 @@
         <url>https://github.com/Computer-Kurzweil/mandelbrot-zoom.git</url>
         <connection>scm:git:git@github.com:Computer-Kurzweil/mandelbrot-zoom.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/mandelbrot-zoom.git</developerConnection>
-        <tag>mandelbrot-zoom-3.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
