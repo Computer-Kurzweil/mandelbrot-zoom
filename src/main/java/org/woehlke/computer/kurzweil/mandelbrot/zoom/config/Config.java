@@ -15,6 +15,8 @@ import java.util.Properties;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
+ * @see ConfigProperties
+ *
  * Created by tw on 16.12.2019.
  */
 public class Config implements ConfigProperties {
