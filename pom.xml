@@ -7,7 +7,7 @@
     <version>3.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Mandelbrot</name>
+    <name>Mandelbrot Zoom</name>
     <description>Computing the Edge of the Mandelbrot Set with a Turing Machine</description>
     <url>https://java.woehlke.org/mandelbrot</url>
     <inceptionYear>2013</inceptionYear>
