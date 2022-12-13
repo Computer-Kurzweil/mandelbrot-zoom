@@ -11,7 +11,6 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * (C) 2006 - 2015 Thomas Woehlke.
  * * @author Thomas Woehlke
  *
- * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
  *
  * @see GaussianNumberPlane
  * @see MandelbrotTuringMachine

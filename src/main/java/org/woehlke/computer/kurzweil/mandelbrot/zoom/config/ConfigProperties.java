@@ -4,10 +4,9 @@ import static java.io.File.separator;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
- *
- * (C) 2006 - 2015 Thomas Woehlke.
- * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
+ * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
+ *
  *
  * Created by tw on 16.12.2019.
  */

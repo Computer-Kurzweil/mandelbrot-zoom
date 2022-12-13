@@ -16,9 +16,10 @@ import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
 /**
- * (C) 2006 - 2013 Thomas Woehlke.
- * https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html
+ * Mandelbrot Set drawn by a Turing Machine.
+ * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
+ *
  * Date: 04.02.2006
  * Time: 18:47:46
  */
