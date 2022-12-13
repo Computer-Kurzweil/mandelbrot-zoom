@@ -20,22 +20,21 @@
     </poweredBy>
     <body>
         <links>
-            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/cyclic-cellular-automaton/" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/mandelbrot-zoom/" />
         </links>
         <breadcrumbs>
             <item name="Mandelbrot" href="readme2.html" />
         </breadcrumbs>
         <menu name="Main" inherit="top">
             <item name="Home" href="readme2.html" />
-            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/cyclic-cellular-automaton" />
-            <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/cyclic-cellular-automaton.html" />
-            <item name="License" href="license.html" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/mandelbrot-zoom/" />
+            <item name="Blog" href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html" />
             <item name="License" href="LICENSE.html" />
             <item name="License" href="LICENSE.code.html" />
         </menu>
         <menu name="Contribute" inherit="bottom">
-            <item name="Issues" href="https://github.com/Computer-Kurzweil/cyclic-cellular-automaton/issues/" />
-            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/cyclic-cellular-automaton/" />
+            <item name="Issues" href="https://github.com/Computer-Kurzweil/mandelbrot-zoom/issues/" />
+            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/mandelbrot-zoom/" />
             <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
         </menu>
         <menu name="Maven Reports" ref="reports" inherit="bottom"/>
