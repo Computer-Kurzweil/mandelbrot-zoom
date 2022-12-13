@@ -3,7 +3,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.view;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.helper.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;

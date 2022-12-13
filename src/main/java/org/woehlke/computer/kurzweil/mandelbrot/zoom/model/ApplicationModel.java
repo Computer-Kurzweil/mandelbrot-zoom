@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.model;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.helper.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.state.ApplicationStateMachine;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.MandelbrotTuringMachine;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;

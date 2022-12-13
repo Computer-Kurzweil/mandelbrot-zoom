@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.helper.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

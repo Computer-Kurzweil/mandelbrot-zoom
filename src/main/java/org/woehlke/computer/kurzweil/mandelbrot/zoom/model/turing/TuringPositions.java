@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
 
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.helper.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
