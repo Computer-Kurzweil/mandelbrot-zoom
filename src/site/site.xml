@@ -30,6 +30,8 @@
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/cyclic-cellular-automaton" />
             <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/cyclic-cellular-automaton.html" />
             <item name="License" href="license.html" />
+            <item name="License" href="LICENSE.html" />
+            <item name="License" href="LICENSE.code.html" />
         </menu>
         <menu name="Contribute" inherit="bottom">
             <item name="Issues" href="https://github.com/Computer-Kurzweil/cyclic-cellular-automaton/issues/" />
