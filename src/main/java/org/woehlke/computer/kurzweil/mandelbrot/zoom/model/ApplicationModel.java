@@ -15,11 +15,11 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see GaussianNumberPlane
- * @see MandelbrotTuringMachine
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.MandelbrotTuringMachine
  *
- * @see Config
- * @see ApplicationFrame
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame
  *
  * Created by tw on 16.12.2019.
  */

@@ -16,17 +16,18 @@ import java.util.Deque;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see ComplexNumber
- * @see Point
- * @see ApplicationModel
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.ComplexNumber
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel
+ *
+ * @see java.util.Deque
+ * @see java.util.ArrayDeque
  *
  * Created by tw on 16.12.2019.
  */
 public class GaussianNumberPlane {
 
     private volatile int[][] lattice;
-
-    private volatile ComplexNumber complexNumberForJuliaSetC;
 
     private final Point worldDimensions;
 
@@ -48,7 +49,6 @@ public class GaussianNumberPlane {
     private volatile Deque<ComplexNumber> complexCenterForZoomedMandelbrot = new ArrayDeque<>();
 
     private volatile ComplexNumber zoomCenter;
-
 
     //public static Logger log = Logger.getLogger(GaussianNumberPlane.class.getName());
 
@@ -148,22 +148,6 @@ public class GaussianNumberPlane {
         }
     }
 
-    private synchronized void computeTheJuliaSetForC(ComplexNumber c) {
-        for(int y = 0; y < worldDimensions.getY(); y++) {
-            for (int x = 0; x < worldDimensions.getX(); x++) {
-                Point zPoint = new Point(x, y);
-                ComplexNumber z = this.getComplexNumberFromLatticeCoordsForJulia(zPoint);
-                lattice[x][y] = z.computeJuliaSet(c);
-            }
-        }
-    }
-
-    public synchronized void computeTheJuliaSetFor(Point pointFromMandelbrotSet) {
-        ComplexNumber c = getComplexNumberFromLatticeCoordsForMandelbrot(pointFromMandelbrotSet);
-        this.complexNumberForJuliaSetC = c;
-        computeTheJuliaSetForC(c);
-    }
-
     public void zoomIntoTheMandelbrotSet(Point zoomPoint) {
         //log.info("zoomIntoTheMandelbrotSet: "+ zoomPoint +" - old:  "+this.getZoomCenter());
         this.inceaseZoomLevel();
@@ -198,14 +182,6 @@ public class GaussianNumberPlane {
                 this.isInZooomedMandelbrotSet(p);
             }
         }
-    }
-
-    public void zoomIntoTheJuliaSetFor(Point zoomPoint) {
-        ComplexNumber c = this.complexNumberForJuliaSetC;
-        computeTheJuliaSetForC(c);
-    }
-
-    public void zoomOutOfTheJuliaSet() {
     }
 
     public synchronized int getZoomLevel() {

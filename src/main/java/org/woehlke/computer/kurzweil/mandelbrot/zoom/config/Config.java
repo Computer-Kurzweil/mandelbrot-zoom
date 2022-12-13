@@ -15,7 +15,7 @@ import java.util.Properties;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see ConfigProperties
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ConfigProperties
  *
  * Created by tw on 16.12.2019.
  */

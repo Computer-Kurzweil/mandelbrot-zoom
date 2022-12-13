@@ -12,11 +12,11 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see ApplicationModel
- * @see ApplicationFrame
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame
  *
- * @see Thread
- * @see Runnable
+ * @see java.lang.Thread
+ * @see java.lang.Runnable
  *
  * Date: 05.02.2006
  * Time: 00:36:20

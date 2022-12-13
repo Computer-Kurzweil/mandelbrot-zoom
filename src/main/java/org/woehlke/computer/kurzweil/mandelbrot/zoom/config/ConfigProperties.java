@@ -11,7 +11,7 @@ import static java.io.File.separator;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- *  @see Config
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config
  *
  * Created by tw on 16.12.2019.
  */
