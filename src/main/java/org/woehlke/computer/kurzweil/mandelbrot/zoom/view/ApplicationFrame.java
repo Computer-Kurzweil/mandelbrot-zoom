@@ -34,6 +34,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile ControllerThread controllerThread;
     private volatile ApplicationCanvas canvas;
     private volatile ApplicationModel applicationModel;
+
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
 
@@ -139,10 +140,6 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
 
     public void setModeSwitch() {
         canvas.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
-    }
-
-    public void setModeZoom() {
-        canvas.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     public ApplicationCanvas getCanvas() {
