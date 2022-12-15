@@ -14,3 +14,4 @@ fixed #7  migrate from gradle to maven
 * fixed #1 remove JApplet and integrate SimulatedEvolutionApplet into SimulatedEvolutionTab extends JFrame
 * #2 more UML with plantUML for Documentation
 * #3 add application properties as Java and yml File
+
