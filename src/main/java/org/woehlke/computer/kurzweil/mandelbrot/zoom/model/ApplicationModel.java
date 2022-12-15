@@ -18,7 +18,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane
  * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.MandelbrotTuringMachine
  *
- * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config
+ * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties
  * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame
  *
  * Created by tw on 16.12.2019.
