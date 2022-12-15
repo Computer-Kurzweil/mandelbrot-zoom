@@ -16,7 +16,9 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 public class MandelbrotSetApplication {
 
     private MandelbrotSetApplication() {
-        ComputerKurzweilProperties config = new ComputerKurzweilProperties();
+        String conf = "application.yml";
+        String jar = "target/mandelbrot-zoom.jar";
+        ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jar);
         ApplicationFrame frame = new ApplicationFrame(config);
     }
 
