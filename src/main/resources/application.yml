@@ -28,9 +28,9 @@ mandelbrotZoom:
     title: 'Mandelbrot Set'
     subtitle: 'Fractal Mandelbrot Set drawn by a Turing Machine'
     copyright: '(c) 2022 Thomas Woehlke'
-    width: 640
-    height: 468
-    scale: 1
+    width: 320
+    height: 234
+    scale: 3
     buttonsZoomOut: 'Zoom Out'
     buttonsZoomLabel: 'Zoom'
   control:

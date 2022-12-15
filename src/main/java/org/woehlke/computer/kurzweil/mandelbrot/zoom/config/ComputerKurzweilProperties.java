@@ -169,7 +169,7 @@ public class ComputerKurzweilProperties implements Serializable {
             private String copyright;
 
             @NotBlank
-            private Integer widtht;
+            private Integer width;
 
             @NotBlank
             private Integer height;

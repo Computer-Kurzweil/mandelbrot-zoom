@@ -159,6 +159,6 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     }
 
     public void start() {
-        this.controllerThread.start();
+        //this.controllerThread.start();
     }
 }
