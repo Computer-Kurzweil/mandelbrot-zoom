@@ -39,8 +39,7 @@ public class PanelButtons extends JPanel implements ActionListener {
         int align = FlowLayout.CENTER;
         int hgap = 2;
         int vgap = 2;
-        FlowLayout layout = new FlowLayout(align,hgap, vgap);
-        this.setLayout(layout);
+        this.setLayout(new FlowLayout(align,hgap, vgap));
         this.add(zoomOut);
     }
 
