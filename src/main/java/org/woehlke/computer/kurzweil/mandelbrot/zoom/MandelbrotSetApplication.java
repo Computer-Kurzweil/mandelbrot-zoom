@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom;
 
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
 /**
@@ -16,7 +16,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 public class MandelbrotSetApplication {
 
     private MandelbrotSetApplication() {
-        Config config = new Config();
+        ComputerKurzweilProperties config = new ComputerKurzweilProperties();
         ApplicationFrame frame = new ApplicationFrame(config);
     }
 

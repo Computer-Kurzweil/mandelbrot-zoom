@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.view;
 
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
@@ -44,7 +45,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         WindowListener,
         MouseListener {
 
-    private final static long serialVersionUID = 242L;
+    final static long serialVersionUID = 242L;
 
     private volatile ControllerThread controllerThread;
     private volatile ApplicationCanvas canvas;
@@ -53,14 +54,14 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
 
-    public ApplicationFrame(Config config) {
-        super(config.getTitle());
+    public ApplicationFrame(ComputerKurzweilProperties config) {
+        super(config.getMandelbrotZoom().getView().getTitle());
         this.applicationModel = new ApplicationModel(config,this);
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         this.canvas = new ApplicationCanvas(applicationModel);
         this.controllerThread = new ControllerThread(applicationModel, this);
         PanelButtons panelButtons = new PanelButtons(this.applicationModel);
-        PanelSubtitle panelSubtitle = new PanelSubtitle(config.getSubtitle());
+        PanelSubtitle panelSubtitle = new PanelSubtitle(config.getMandelbrotZoom().getView().getSubtitle());
         rootPane.setLayout(layout);
         rootPane.add(panelSubtitle);
         rootPane.add(canvas);

@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model;
 
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.MandelbrotTuringMachine;
@@ -28,10 +28,10 @@ public class ApplicationModel {
     private volatile GaussianNumberPlane gaussianNumberPlane;
     private volatile MandelbrotTuringMachine mandelbrotTuringMachine;
 
-    private volatile Config config;
+    private volatile ComputerKurzweilProperties config;
     private volatile ApplicationFrame frame;
 
-    public ApplicationModel(Config config, ApplicationFrame frame) {
+    public ApplicationModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
         this.config = config;
         this.frame = frame;
         this.gaussianNumberPlane = new GaussianNumberPlane(this);
@@ -58,8 +58,9 @@ public class ApplicationModel {
     }
 
     public Point getWorldDimensions() {
-        int width = config.getWidth();
-        int height = config.getHeight();
+        int scale = config.getMandelbrotZoom().getView().getScale();
+        int width = scale * config.getMandelbrotZoom().getView().getWidth();
+        int height = scale * config.getMandelbrotZoom().getView().getHeight();
         return new Point(width, height);
     }
 
@@ -71,7 +72,7 @@ public class ApplicationModel {
         return frame;
     }
 
-    public Config getConfig() {
+    public ComputerKurzweilProperties getConfig() {
         return config;
     }
 

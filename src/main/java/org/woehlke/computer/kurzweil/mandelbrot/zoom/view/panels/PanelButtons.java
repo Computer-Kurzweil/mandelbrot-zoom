@@ -33,8 +33,8 @@ public class PanelButtons extends JPanel implements ActionListener {
 
     public PanelButtons(ApplicationModel model) {
         this.model = model;
-        this.add(new JLabel(model.getConfig().getCopyright()));
-        this.zoomOut = new JButton(model.getConfig().getButtonsZoomOut());
+        this.add(new JLabel(model.getConfig().getMandelbrotZoom().getView().getCopyright()));
+        this.zoomOut = new JButton(model.getConfig().getMandelbrotZoom().getView().getButtonsZoomOut());
         this.zoomOut.addActionListener(this);
         FlowLayout layout = new FlowLayout();
         this.setLayout(layout);
