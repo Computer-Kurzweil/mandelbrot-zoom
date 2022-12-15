@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.mandelbrot.zoom.view;
+package org.woehlke.computer.kurzweil.mandelbrot.zoom.view.canvas;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 

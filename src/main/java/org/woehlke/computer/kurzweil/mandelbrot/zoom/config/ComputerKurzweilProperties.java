@@ -216,19 +216,19 @@ public class ComputerKurzweilProperties implements Serializable {
             private String copyright;
 
             @NotBlank
+            private Integer width;
+
+            @NotBlank
+            private Integer height;
+
+            @NotBlank
+            private Integer scale;
+
+            @NotBlank
             private String buttonsZoomOut;
 
             @NotBlank
             private String buttonsZoomLabel;
-
-            @NotNull
-            private Integer width;
-
-            @NotNull
-            private Integer height;
-
-            @NotNull
-            private Integer scale;
 
         }
 
@@ -987,14 +987,14 @@ public class ComputerKurzweilProperties implements Serializable {
 
     final static long serialVersionUID = 242L;
 
-    public static ComputerKurzweilProperties propertiesFactory(String conf, String jar){
+    public static ComputerKurzweilProperties propertiesFactory(String conf, String jarPath){
         log.info("propertiesFactory");
         log.info("propertiesFactory conf: "+conf);
-        log.info("propertiesFactory jar:  "+jar);
+        log.info("propertiesFactory jar:  "+jarPath);
         ComputerKurzweilProperties properties;
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
-            JarFile jarFile = new JarFile(jar);
+            JarFile jarFile = new JarFile(jarPath);
             JarEntry entry = jarFile.getJarEntry(conf);
             InputStream input = jarFile.getInputStream(entry);
             properties = mapper.readValue(input, ComputerKurzweilProperties.class);

@@ -1,10 +1,10 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.view;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.Config;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.canvas.ApplicationCanvas;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.panels.PanelButtons;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.panels.PanelSubtitle;
 
