@@ -9,7 +9,6 @@ import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.tabs.TabType;
 
-
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.jar.JarEntry;
@@ -206,6 +205,7 @@ public class ComputerKurzweilProperties implements Serializable {
         @Setter
         public static class View {
 
+
             @NotBlank
             private String title;
 
@@ -216,6 +216,12 @@ public class ComputerKurzweilProperties implements Serializable {
             private String copyright;
 
             @NotBlank
+            private String buttonsZoomOut;
+
+            @NotBlank
+            private String buttonsZoomLabel;
+
+            @NotBlank
             private Integer width;
 
             @NotBlank
@@ -223,12 +229,6 @@ public class ComputerKurzweilProperties implements Serializable {
 
             @NotBlank
             private Integer scale;
-
-            @NotBlank
-            private String buttonsZoomOut;
-
-            @NotBlank
-            private String buttonsZoomLabel;
 
         }
 
@@ -984,8 +984,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer numberOfParticles;
         }
     }
-
-    final static long serialVersionUID = 242L;
 
     public static ComputerKurzweilProperties propertiesFactory(String conf, String jarPath){
         log.info("propertiesFactory");
