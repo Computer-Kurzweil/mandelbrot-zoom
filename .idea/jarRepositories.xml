@@ -57,14 +57,14 @@
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="hortonworks-releases" />
-      <option name="name" value="Hortonworks Repository" />
-      <option name="url" value="https://repo.hortonworks.com/content/repositories/releases/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="snapshots" />
       <option name="name" value="libs-snapshot" />
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="hortonworks-releases" />
+      <option name="name" value="Hortonworks Repository" />
+      <option name="url" value="https://repo.hortonworks.com/content/repositories/releases/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="springio-libs-release" />
@@ -117,14 +117,14 @@
       <option name="url" value="http://tw-thinkpad:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="jcenter" />
-      <option name="name" value="JCenter Repository" />
-      <option name="url" value="https://jcenter.bintray.com/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="atlassian-public" />
       <option name="name" value="Atlassian Repository" />
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jcenter" />
+      <option name="name" value="JCenter Repository" />
+      <option name="url" value="https://jcenter.bintray.com/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="atlassian-public" />
@@ -167,14 +167,14 @@
       <option name="url" value="https://repo.spring.io/libs-release/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="jboss-releases" />
-      <option name="name" value="JBoss Releases Repository" />
-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/releases/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="hortonworks-releases" />
       <option name="name" value="Hortonworks Repository" />
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss-releases" />
+      <option name="name" value="JBoss Releases Repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/releases/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="wso2-public" />
