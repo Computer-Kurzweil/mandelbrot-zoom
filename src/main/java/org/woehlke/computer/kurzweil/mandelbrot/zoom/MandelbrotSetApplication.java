@@ -20,6 +20,7 @@ public class MandelbrotSetApplication {
         String jar = "target/mandelbrot-zoom.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jar);
         ApplicationFrame frame = new ApplicationFrame(config);
+        frame.start();
     }
 
     /**

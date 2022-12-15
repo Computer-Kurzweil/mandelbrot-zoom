@@ -157,4 +157,8 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     public ApplicationCanvas getCanvas() {
         return canvas;
     }
+
+    public void start() {
+        this.controllerThread.start();
+    }
 }
