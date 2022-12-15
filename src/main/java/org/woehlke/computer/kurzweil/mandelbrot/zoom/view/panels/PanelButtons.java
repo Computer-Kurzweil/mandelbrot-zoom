@@ -26,7 +26,7 @@ import java.awt.event.ActionListener;
  */
 public class PanelButtons extends JPanel implements ActionListener {
 
-    private final static long serialVersionUID = 242L;
+    final static long serialVersionUID = 242L;
 
     private volatile JButton zoomOut;
     private volatile ApplicationModel model;
@@ -36,7 +36,10 @@ public class PanelButtons extends JPanel implements ActionListener {
         this.add(new JLabel(model.getConfig().getMandelbrotZoom().getView().getCopyright()));
         this.zoomOut = new JButton(model.getConfig().getMandelbrotZoom().getView().getButtonsZoomOut());
         this.zoomOut.addActionListener(this);
-        FlowLayout layout = new FlowLayout();
+        int align = FlowLayout.CENTER;
+        int hgap = 2;
+        int vgap = 2;
+        FlowLayout layout = new FlowLayout(align,hgap, vgap);
         this.setLayout(layout);
         this.add(zoomOut);
     }

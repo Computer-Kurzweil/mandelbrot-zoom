@@ -16,10 +16,13 @@ import java.awt.*;
  */
 public class PanelSubtitle extends JPanel {
 
-  private final static long serialVersionUID = 242L;
+  final static long serialVersionUID = 242L;
 
   public PanelSubtitle(String subtitle) {
-      this.setLayout(new FlowLayout());
+      int align = FlowLayout.CENTER;
+      int hgap = 2;
+      int vgap = 2;
+      this.setLayout(new FlowLayout(align,hgap, vgap));
       this.add(new JLabel(subtitle));
   }
 
