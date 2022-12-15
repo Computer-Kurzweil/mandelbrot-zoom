@@ -18,9 +18,9 @@ mandelbrotJulia:
     title: 'Mandelbrot Set'
     subtitle: 'Fractal Mandelbrot Set drawn by a Turing Machine'
     copyright: '(c) 2022 Thomas Woehlke'
-    width: 800
-    height: 585
-    scale: 1
+    width: 400
+    height: 292
+    scale: 3
   control:
     threadSleepTime: 50
 mandelbrotZoom:
@@ -30,9 +30,9 @@ mandelbrotZoom:
     copyright: '(c) 2022 Thomas Woehlke'
     buttonsZoomOut: 'Zoom Out'
     buttonsZoomLabel: 'Zoom'
-    width: 800
-    height: 585
-    scale: 1
+    width: 400
+    height: 292
+    scale: 3
   control:
     threadSleepTime: 50
 simulatedevolution:
