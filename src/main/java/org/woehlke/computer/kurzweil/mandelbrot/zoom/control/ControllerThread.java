@@ -24,15 +24,15 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 public class ControllerThread extends Thread implements Runnable {
 
     private volatile ApplicationModel model;
-    private volatile ApplicationFrame view;
+    private volatile ApplicationFrame tab;
 
     private final int threadSleepTime;
 
     private volatile Boolean goOn;
 
-    public ControllerThread(ApplicationModel model, ApplicationFrame view) {
-        this.view = view;
-        this.model = model;
+    public ControllerThread(ApplicationFrame tab) {
+        this.tab = tab;
+        this.model = tab.getModel();
         this.goOn = Boolean.TRUE;
         this.threadSleepTime = 1;
     }
@@ -42,8 +42,8 @@ public class ControllerThread extends Thread implements Runnable {
         do {
             doIt = isRunning();
             if(this.model.step()){
-                view.getCanvas().repaint();
-                view.repaint();
+                tab.getCanvas().repaint();
+                tab.repaint();
             }
             try { sleep(threadSleepTime); }
             catch (InterruptedException e) { }

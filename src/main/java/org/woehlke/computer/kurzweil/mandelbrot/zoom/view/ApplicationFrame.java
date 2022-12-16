@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.view;
 
+import lombok.Getter;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
@@ -47,21 +48,33 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
 
     final static long serialVersionUID = 242L;
 
-    private volatile ControllerThread controllerThread;
+    @Getter
+    private final ComputerKurzweilProperties config;
+
+    @Getter
+    private volatile ApplicationModel model;
+
+    @Getter
     private volatile ApplicationCanvas canvas;
-    private volatile ApplicationModel applicationModel;
+
+    @Getter
+    private volatile ControllerThread controller;
+
+    private final PanelButtons panelButtons;
+    private final PanelSubtitle panelSubtitle;
 
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
 
     public ApplicationFrame(ComputerKurzweilProperties config) {
         super(config.getMandelbrotZoom().getView().getTitle());
-        this.applicationModel = new ApplicationModel(config,this);
+        this.config = config;
+        this.model = new ApplicationModel(this);
+        this.canvas = new ApplicationCanvas(this);
+        this.controller = new ControllerThread( this);
+        this.panelButtons = new PanelButtons(this);
+        this.panelSubtitle = new PanelSubtitle(config.getMandelbrotZoom().getView().getSubtitle());
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
-        this.canvas = new ApplicationCanvas(applicationModel);
-        this.controllerThread = new ControllerThread(applicationModel, this);
-        PanelButtons panelButtons = new PanelButtons(this.applicationModel);
-        PanelSubtitle panelSubtitle = new PanelSubtitle(config.getMandelbrotZoom().getView().getSubtitle());
         rootPane.setLayout(layout);
         rootPane.add(panelSubtitle);
         rootPane.add(canvas);
@@ -69,8 +82,13 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         this.addWindowListener(this);
         this.canvas.addMouseListener(   this);
         this.showMeInit();
-        this.setModeSwitch();
-        this.controllerThread.start();
+    }
+
+    public void start() {
+        this.model.start();
+        this.controller.start();
+        this.canvas.repaint();
+        this.repaint();
     }
 
     public void windowOpened(WindowEvent e) {
@@ -78,11 +96,11 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     }
 
     public void windowClosing(WindowEvent e) {
-        this.controllerThread.exit();
+        this.controller.exit();
     }
 
     public void windowClosed(WindowEvent e) {
-        this.controllerThread.exit();
+        this.controller.exit();
     }
 
     public void windowIconified(WindowEvent e) {}
@@ -101,7 +119,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     @Override
     public void mouseClicked(MouseEvent e) {
         Point c = new Point(e.getX(), e.getY());
-        this.applicationModel.click(c);
+        this.model.click(c);
         showMe();
     }
 
@@ -150,15 +168,4 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         this.toFront();
     }
 
-    public void setModeSwitch() {
-        canvas.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
-    }
-
-    public ApplicationCanvas getCanvas() {
-        return canvas;
-    }
-
-    public void start() {
-        //this.controllerThread.start();
-    }
 }

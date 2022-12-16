@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.view.panels;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,9 +32,11 @@ public class PanelButtons extends JPanel implements ActionListener {
     private volatile JLabel copyright;
     private volatile JButton zoomOut;
     private volatile ApplicationModel model;
+    private final ApplicationFrame tab;
 
-    public PanelButtons(ApplicationModel model) {
-        this.model = model;
+    public PanelButtons(ApplicationFrame tab) {
+        this.tab = tab;
+        this.model = tab.getModel();
         this.copyright = new JLabel(model.getConfig().getMandelbrotZoom().getView().getCopyright());
         this.zoomOut = new JButton(model.getConfig().getMandelbrotZoom().getView().getButtonsZoomOut());
         int hgap = 16;
@@ -53,8 +56,8 @@ public class PanelButtons extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == this.zoomOut){
             this.model.zoomOut();
-            this.model.getFrame().getCanvas().repaint();
-            this.model.getFrame().repaint();
+            this.tab.getCanvas().repaint();
+            this.tab.repaint();
         }
     }
 }

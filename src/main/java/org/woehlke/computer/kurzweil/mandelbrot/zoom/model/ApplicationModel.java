@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model;
 
+import lombok.Getter;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
@@ -23,19 +24,24 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  *
  * Created by tw on 16.12.2019.
  */
+@Getter
 public class ApplicationModel {
 
     private volatile GaussianNumberPlane gaussianNumberPlane;
     private volatile MandelbrotTuringMachine mandelbrotTuringMachine;
-
     private volatile ComputerKurzweilProperties config;
-    private volatile ApplicationFrame frame;
+    private volatile ApplicationFrame tab;
 
-    public ApplicationModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
-        this.config = config;
-        this.frame = frame;
-        this.gaussianNumberPlane = new GaussianNumberPlane(this);
-        this.mandelbrotTuringMachine = new MandelbrotTuringMachine(this);
+    public ApplicationModel(ApplicationFrame tab) {
+        this.tab = tab;
+        this.config = tab.getConfig();
+        this.gaussianNumberPlane = new GaussianNumberPlane(tab);
+        this.mandelbrotTuringMachine = new MandelbrotTuringMachine(tab);
+    }
+
+    public void start(){
+        this.gaussianNumberPlane.start();
+        this.mandelbrotTuringMachine.start();
     }
 
     public synchronized boolean click(Point c) {
@@ -62,18 +68,6 @@ public class ApplicationModel {
         int width = scale * config.getMandelbrotZoom().getView().getWidth();
         int height = scale * config.getMandelbrotZoom().getView().getHeight();
         return new Point(width, height);
-    }
-
-    public GaussianNumberPlane getGaussianNumberPlane() {
-        return gaussianNumberPlane;
-    }
-
-    public ApplicationFrame getFrame() {
-        return frame;
-    }
-
-    public ComputerKurzweilProperties getConfig() {
-        return config;
     }
 
 }

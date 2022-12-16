@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.view.canvas;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,11 +29,14 @@ public class ApplicationCanvas extends JComponent {
 
     private final static long serialVersionUID = 242L;
 
+    private final ApplicationFrame tab;
     private volatile ApplicationModel model;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(ApplicationModel model) {
-        this.model = model;
+    public ApplicationCanvas(ApplicationFrame tab) {
+        this.tab = tab;
+        this.model = this.tab.getModel();
+        this.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
         int width = this.model.getWorldDimensions().getWidth();
         int height = this.model.getWorldDimensions().getHeight();
         this.preferredSize = new Dimension(width, height);

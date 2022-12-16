@@ -2,7 +2,9 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
+import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Deque;
 //import java.util.logging.Logger;
@@ -25,7 +27,9 @@ import java.util.Deque;
  *
  * Created by tw on 16.12.2019.
  */
-public class GaussianNumberPlane {
+public class GaussianNumberPlane implements Serializable {
+
+    final static long serialVersionUID = 242L;
 
     private volatile int[][] lattice;
 
@@ -35,8 +39,10 @@ public class GaussianNumberPlane {
 
     private final static double complexWorldDimensionRealX = 3.2d;
     private final static double complexWorldDimensionImgY = 2.34d;
+
     private final static double complexCenterForMandelbrotRealX = -2.2f;
     private final static double complexCenterForMandelbrotImgY = -1.17f;
+
     private final static double complexCenterForJuliaRealX = -1.6d;
     private final static double complexCenterForJuliaImgY =  -1.17d;
 
@@ -50,10 +56,11 @@ public class GaussianNumberPlane {
 
     private volatile ComplexNumber zoomCenter;
 
-    //public static Logger log = Logger.getLogger(GaussianNumberPlane.class.getName());
+    private final ApplicationFrame tab;
 
-    public GaussianNumberPlane(ApplicationModel model) {
-        this.worldDimensions = model.getWorldDimensions();
+    public GaussianNumberPlane(ApplicationFrame tab) {
+        this.tab = tab;
+        this.worldDimensions = tab.getModel().getWorldDimensions();
         this.lattice = new int[worldDimensions.getWidth()][worldDimensions.getHeight()];
         this.complexWorldDimensions = new ComplexNumber(
             complexWorldDimensionRealX,
@@ -86,14 +93,6 @@ public class GaussianNumberPlane {
 
     public synchronized int getCellStatusFor(int x,int y){
         return (lattice[x][y])<0?0:lattice[x][y];
-    }
-
-    private synchronized ComplexNumber getComplexNumberFromLatticeCoordsForJulia(Point turingPosition) {
-        double realX = complexCenterForJulia.getReal()
-            + (complexWorldDimensions.getReal()*turingPosition.getX())/worldDimensions.getX();
-        double imgY = complexCenterForJulia.getImg()
-            + (complexWorldDimensions.getImg()*turingPosition.getY())/worldDimensions.getY();
-        return new ComplexNumber(realX,imgY);
     }
 
     private synchronized ComplexNumber getComplexNumberFromLatticeCoordsForMandelbrot(Point turingPosition) {
