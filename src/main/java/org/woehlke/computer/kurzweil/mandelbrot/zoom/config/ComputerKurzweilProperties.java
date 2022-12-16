@@ -7,7 +7,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.LatticePoint;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
+
 
 import java.io.InputStream;
 import java.io.Serializable;
@@ -965,11 +966,11 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
-    public LatticePoint getWorldDimensions() {
+    public Point getWorldDimensions() {
         int scale = this.getMandelbrotZoom().getView().getScale();
         int width = scale * this.getMandelbrotZoom().getView().getWidth();
         int height = scale * this.getMandelbrotZoom().getView().getHeight();
-        return new LatticePoint(width, height);
+        return new Point(width, height);
     }
 
     public static ComputerKurzweilProperties propertiesFactory(String conf, String jarPath){
