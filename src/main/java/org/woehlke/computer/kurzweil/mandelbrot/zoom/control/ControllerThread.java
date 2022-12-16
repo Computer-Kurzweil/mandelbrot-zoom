@@ -23,38 +23,39 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  */
 public class ControllerThread extends Thread implements Runnable {
 
-    private volatile ApplicationModel applicationModel;
-    private volatile ApplicationFrame frame;
+    private volatile ApplicationModel model;
+    private volatile ApplicationFrame view;
 
-    private final int THREAD_SLEEP_TIME = 1;
+    private final int threadSleepTime;
 
     private volatile Boolean goOn;
 
-    public ControllerThread(ApplicationModel model, ApplicationFrame frame) {
-        this.frame = frame;
-        this.applicationModel = model;
-        goOn = Boolean.TRUE;
+    public ControllerThread(ApplicationModel model, ApplicationFrame view) {
+        this.view = view;
+        this.model = model;
+        this.goOn = Boolean.TRUE;
+        this.threadSleepTime = 1;
     }
 
     public void run() {
         boolean doIt;
         do {
-            synchronized (goOn) {
-                doIt = goOn.booleanValue();
+            doIt = isRunning();
+            if(this.model.step()){
+                view.getCanvas().repaint();
+                view.repaint();
             }
-            if(this.applicationModel.step()){
-                frame.getCanvas().repaint();
-            }
-            try { sleep(THREAD_SLEEP_TIME); }
+            try { sleep(threadSleepTime); }
             catch (InterruptedException e) { }
-        }
-        while (doIt);
+        } while (doIt);
     }
 
-    public void exit() {
-        synchronized (goOn) {
-            goOn = Boolean.FALSE;
-        }
+    public synchronized boolean isRunning() {
+        return this.goOn;
+    }
+
+    public synchronized void exit() {
+        goOn = Boolean.FALSE;
     }
 
 }
