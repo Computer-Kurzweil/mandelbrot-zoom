@@ -39,7 +39,7 @@ public class PanelButtons extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == this.zoomOut){
-            //this.model.zoomOut();
+            this.model.zoomOut();
             this.tab.getCanvas().repaint();
             this.tab.repaint();
         }

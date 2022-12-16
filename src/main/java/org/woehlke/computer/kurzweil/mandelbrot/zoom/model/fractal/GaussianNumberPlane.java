@@ -120,4 +120,12 @@ public class GaussianNumberPlane {
             getComplexNumberFromLatticeCoordsForMandelbrot(pointFromMandelbrotSet);
         computeTheJuliaSetForC(complexNumberForJuliaSetC);
     }
+
+    public void zoomIn(){
+        System.out.println("zoomIn");
+    }
+
+    public void zoomOut(){
+        System.out.println("zoomOut");
+    }
 }

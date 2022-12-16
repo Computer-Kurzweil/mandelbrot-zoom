@@ -48,15 +48,7 @@ public class ApplicationModel {
     public synchronized boolean click(Point c) {
         applicationStateMachine.click();
         boolean repaint = true;
-        switch (applicationStateMachine.getApplicationState()) {
-            case MANDELBROT:
-                mandelbrotTuringMachine.start();
-                repaint = false;
-                break;
-            case JULIA_SET:
-                gaussianNumberPlane.computeTheJuliaSetFor(c);
-                break;
-        }
+        this.zoomIn();
         return repaint;
     }
 
@@ -70,6 +62,14 @@ public class ApplicationModel {
                 break;
         }
         return repaint;
+    }
+
+    public void zoomIn(){
+        this.gaussianNumberPlane.zoomIn();
+    }
+
+    public void zoomOut(){
+        this.gaussianNumberPlane.zoomOut();
     }
 
     public synchronized int getCellStatusFor(int x, int y) {
