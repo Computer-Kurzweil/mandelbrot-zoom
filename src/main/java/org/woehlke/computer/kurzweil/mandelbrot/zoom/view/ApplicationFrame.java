@@ -18,6 +18,8 @@ import java.awt.image.ImageObserver;
 import java.io.Serial;
 import java.io.Serializable;
 
+import static java.awt.event.MouseEvent.*;
+
 /**
  * Mandelbrot Set drawn by a Turing Machine. Click to see corresponding Julia set.
  * (C) 2006 - 2022 Thomas Woehlke.
@@ -108,7 +110,21 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     @Override
     public void mouseClicked(MouseEvent e) {
         Point c = new Point(e.getX(), e.getY());
-        this.model.click(c);
+        int button = e.getButton();
+        switch (button){
+            case BUTTON1:
+                System.out.println("default BUTTON1");
+                this.model.click(c);
+                break;
+            case BUTTON2:
+                System.out.println("default BUTTON2");
+            case BUTTON3:
+                System.out.println("default BUTTON3");
+            default:
+                System.out.println("default (button)");
+                model.zoomOut();
+                break;
+        }
         showMe();
     }
 
