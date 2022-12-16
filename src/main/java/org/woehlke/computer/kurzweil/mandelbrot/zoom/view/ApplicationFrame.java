@@ -113,15 +113,15 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         int button = e.getButton();
         switch (button){
             case BUTTON1:
-                System.out.println("default BUTTON1");
+                //System.out.println("default BUTTON1");
                 this.model.click(c);
                 break;
             case BUTTON2:
-                System.out.println("default BUTTON2");
+                //System.out.println("default BUTTON2");
             case BUTTON3:
-                System.out.println("default BUTTON3");
+                //System.out.println("default BUTTON3");
             default:
-                System.out.println("default (button)");
+                //System.out.println("default (button)");
                 model.zoomOut();
                 break;
         }
