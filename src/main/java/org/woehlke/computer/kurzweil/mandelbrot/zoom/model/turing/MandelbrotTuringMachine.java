@@ -26,13 +26,13 @@ public class MandelbrotTuringMachine {
     private volatile GaussianNumberPlane gaussianNumberPlane;
     private volatile TuringPositions turingPositions;
     private volatile TuringPhaseState turingPhaseState;
-    private final ApplicationFrame tab;
+    private final ApplicationModel model;
 
-    public MandelbrotTuringMachine(ApplicationFrame tab) {
-        this.tab = tab;
-        this.gaussianNumberPlane = tab.getModel().getGaussianNumberPlane();
+    public MandelbrotTuringMachine(ApplicationModel model) {
+        this.model = model;
+        this.gaussianNumberPlane = this.model.getGaussianNumberPlane();
         this.turingPhaseState = new TuringPhaseState();
-        this.turingPositions = new TuringPositions(tab.getConfig().getWorldDimensions());
+        this.turingPositions = new TuringPositions(this.model.getConfig().getWorldDimensions());
     }
 
     public void start() {

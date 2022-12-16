@@ -29,14 +29,17 @@ public class ApplicationModel {
 
     private volatile GaussianNumberPlane gaussianNumberPlane;
     private volatile MandelbrotTuringMachine mandelbrotTuringMachine;
-    private volatile ComputerKurzweilProperties config;
-    private volatile ApplicationFrame tab;
+    private final ApplicationFrame tab;
+    private final ComputerKurzweilProperties config;
+    private volatile Point worldDimensions;
+
 
     public ApplicationModel(ApplicationFrame tab) {
         this.tab = tab;
         this.config = tab.getConfig();
-        this.gaussianNumberPlane = new GaussianNumberPlane(tab);
-        this.mandelbrotTuringMachine = new MandelbrotTuringMachine(tab);
+        this.worldDimensions = tab.getConfig().getWorldDimensions();
+        this.gaussianNumberPlane = new GaussianNumberPlane(this);
+        this.mandelbrotTuringMachine = new MandelbrotTuringMachine(this);
     }
 
     public void start(){

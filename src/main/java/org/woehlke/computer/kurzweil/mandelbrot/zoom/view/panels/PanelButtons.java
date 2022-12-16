@@ -31,14 +31,12 @@ public class PanelButtons extends JPanel implements ActionListener {
 
     private volatile JLabel copyright;
     private volatile JButton zoomOut;
-    private volatile ApplicationModel model;
     private final ApplicationFrame tab;
 
     public PanelButtons(ApplicationFrame tab) {
         this.tab = tab;
-        this.model = tab.getModel();
-        this.copyright = new JLabel(model.getConfig().getMandelbrotZoom().getView().getCopyright());
-        this.zoomOut = new JButton(model.getConfig().getMandelbrotZoom().getView().getButtonsZoomOut());
+        this.copyright = new JLabel(tab.getConfig().getMandelbrotZoom().getView().getCopyright());
+        this.zoomOut = new JButton(tab.getConfig().getMandelbrotZoom().getView().getButtonsZoomOut());
         int hgap = 16;
         int vgap = 2;
         this.copyright.setLayout(new FlowLayout( FlowLayout.RIGHT, hgap, vgap));
@@ -55,7 +53,7 @@ public class PanelButtons extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == this.zoomOut){
-            this.model.zoomOut();
+            this.tab.getModel().zoomOut();
             this.tab.getCanvas().repaint();
             this.tab.repaint();
         }

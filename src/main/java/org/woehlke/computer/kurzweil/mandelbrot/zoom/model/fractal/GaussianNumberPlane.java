@@ -1,12 +1,11 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal;
 
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
 import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Deque;
-//import java.util.logging.Logger;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -32,18 +31,7 @@ public class GaussianNumberPlane implements Serializable {
 
     private volatile int[][] lattice;
 
-    private final Point worldDimensions;
-
     public final static int YET_UNCOMPUTED = -1;
-
-    private final static double complexWorldDimensionRealX = 3.2d;
-    private final static double complexWorldDimensionImgY = 2.34d;
-
-    private final static double complexCenterForMandelbrotRealX = -2.2f;
-    private final static double complexCenterForMandelbrotImgY = -1.17f;
-
-    private final static double complexCenterForJuliaRealX = -1.6d;
-    private final static double complexCenterForJuliaImgY =  -1.17d;
 
     private volatile ComplexNumber complexWorldDimensions;
     private volatile ComplexNumber complexCenterForMandelbrot;
@@ -55,31 +43,28 @@ public class GaussianNumberPlane implements Serializable {
 
     private volatile ComplexNumber zoomCenter;
 
-    private final ApplicationFrame tab;
+    private final ApplicationModel model;
+    private volatile Point worldDimensions;
 
-    public GaussianNumberPlane(ApplicationFrame tab) {
-        this.tab = tab;
-        this.worldDimensions = tab.getConfig().getWorldDimensions();
+    public GaussianNumberPlane(ApplicationModel model) {
+        this.model = model;
+        this.worldDimensions = this.model.getWorldDimensions();
         this.lattice = new int[worldDimensions.getWidth()][worldDimensions.getHeight()];
         this.complexWorldDimensions = new ComplexNumber(
-            complexWorldDimensionRealX,
-            complexWorldDimensionImgY
+            this.model.getConfig().getMandelbrotZoom().getModel().getComplexWorldDimensionRealX(),
+            this.model.getConfig().getMandelbrotZoom().getModel().getComplexWorldDimensionImgY()
         );
         this.complexCenterForMandelbrot = new ComplexNumber(
-            complexCenterForMandelbrotRealX,
-            complexCenterForMandelbrotImgY
+            this.model.getConfig().getMandelbrotZoom().getModel().getComplexCenterForMandelbrotRealX(),
+            this.model.getConfig().getMandelbrotZoom().getModel().getComplexCenterForMandelbrotImgY()
         );
         this.complexCenterForJulia = new ComplexNumber(
-            complexCenterForJuliaRealX,
-            complexCenterForJuliaImgY
+            this.model.getConfig().getMandelbrotZoom().getModel().getComplexCenterForJuliaRealX(),
+            this.model.getConfig().getMandelbrotZoom().getModel().getComplexCenterForJuliaImgY()
         );
-        setModeZoom();
-        start();
-    }
-
-    public void setModeZoom() {
         this.setZoomLevel(1);
         this.setZoomCenter(complexCenterForMandelbrot);
+        start();
     }
 
     public synchronized void start(){
@@ -92,7 +77,7 @@ public class GaussianNumberPlane implements Serializable {
     }
 
     public synchronized int getCellStatusFor(int x,int y){
-        return (lattice[x][y])<0?0:lattice[x][y];
+        return Math.max(lattice[x][y],0);
     }
 
     private synchronized ComplexNumber getComplexNumberFromLatticeCoords(Point turingPosition) {

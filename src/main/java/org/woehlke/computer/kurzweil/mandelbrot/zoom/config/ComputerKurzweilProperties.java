@@ -30,7 +30,6 @@ import java.util.jar.JarFile;
 @Valid
 @Getter
 @Setter
-////@Validated
 public class ComputerKurzweilProperties implements Serializable {
 
     @Valid
@@ -75,7 +74,6 @@ public class ComputerKurzweilProperties implements Serializable {
     @Valid
     public Gameoflive gameoflive = new Gameoflive();
 
-    ////@Validated
     @ToString
     @Getter
     @Setter
@@ -87,7 +85,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public View view = new View();
 
-        ////@Validated
         @Getter
         @Setter
         @ToString
@@ -100,7 +97,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer height;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -138,7 +134,6 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
-    ////@Validated
     @ToString
     @Getter
     @Setter
@@ -150,7 +145,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -175,7 +169,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer scale;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -197,12 +190,13 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        ////@Validated
+        @Valid
+        public Model model = new Model();
+
         @ToString
         @Getter
         @Setter
         public static class View {
-
 
             @NotBlank
             private String title;
@@ -230,7 +224,30 @@ public class ComputerKurzweilProperties implements Serializable {
 
         }
 
-        ////@Validated
+        @ToString
+        @Getter
+        @Setter
+        public static class Model {
+
+            @NotNull
+            private Double complexWorldDimensionRealX;
+
+            @NotNull
+            private Double complexWorldDimensionImgY;
+
+            @NotNull
+            private Double complexCenterForMandelbrotRealX;
+
+            @NotNull
+            private Double complexCenterForMandelbrotImgY;
+
+            @NotNull
+            private Double complexCenterForJuliaRealX;
+
+            @NotNull
+            private Double complexCenterForJuliaImgY;
+        }
+
         @ToString
         @Getter
         @Setter
@@ -241,7 +258,6 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
-    ////@Validated
     @ToString
     @Getter
     @Setter
@@ -265,7 +281,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public GardenOfEden gardenOfEden = new GardenOfEden();
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -290,7 +305,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer scale;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -306,7 +320,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer queueMaxLength;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -337,7 +350,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private Integer ageMax;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -374,7 +386,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private String generationYoungestLabel;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -402,7 +413,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private String panelFood;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -431,7 +441,6 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
-    ////@Validated
     @ToString
     @Getter
     @Setter
@@ -443,7 +452,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -458,7 +466,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @ToString
             @Getter
             @Setter
@@ -478,7 +485,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -489,7 +495,6 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
-    ////@Validated
     @ToString
     @Getter
     @Setter
@@ -501,7 +506,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -514,7 +518,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private String subtitle;
         }
 
-        ////@Validated
         @ToString
         @Getter
         @Setter
@@ -525,7 +528,6 @@ public class ComputerKurzweilProperties implements Serializable {
         }
     }
 
-    //@Validated
     @ToString
     @Getter
     @Setter
@@ -537,7 +539,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -550,7 +551,6 @@ public class ComputerKurzweilProperties implements Serializable {
             private String subtitle;
         }
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -575,7 +575,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -590,7 +589,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @ToString
             @Getter
             @Setter
@@ -610,7 +608,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -635,7 +632,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -650,7 +646,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @ToString
             @Getter
             @Setter
@@ -670,7 +665,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -695,7 +689,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -710,7 +703,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @Getter
             @Setter
             @ToString
@@ -730,7 +722,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @ToString
         @Getter
         @Setter
@@ -756,7 +747,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -771,7 +761,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @Getter
             @Setter
             @ToString
@@ -790,7 +779,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -815,7 +803,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -830,7 +817,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @ToString
             @Getter
             @Setter
@@ -850,7 +836,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -875,7 +860,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -890,7 +874,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @Getter
             @Setter
             @ToString
@@ -909,7 +892,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -934,7 +916,6 @@ public class ComputerKurzweilProperties implements Serializable {
         @Valid
         public Control control = new Control();
 
-        //@Validated
         @Getter
         @Setter
         @ToString
@@ -949,7 +930,6 @@ public class ComputerKurzweilProperties implements Serializable {
             @Valid
             public Neighborhood neighborhood = new Neighborhood();
 
-            //@Validated
             @Getter
             @Setter
             @ToString
@@ -969,7 +949,6 @@ public class ComputerKurzweilProperties implements Serializable {
             }
         }
 
-        //@Validated
         @Getter
         @Setter
         @ToString
