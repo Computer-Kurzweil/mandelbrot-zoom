@@ -44,17 +44,22 @@ public class ApplicationCanvas extends JComponent {
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
-        int red = 0;
-        int green = 0;
-        int blue = 0;
         for(int y = 0; y < app.getWorldDimensions().getY(); y++){
             for(int x = 0; x < app.getWorldDimensions().getX(); x++){
-                blue = (((app.getCellStatusFor(x,y))*4)%256);
-                Color stateColor = new Color(red, green, blue);
+                Color stateColor = getColorForCellStatus(app.getCellStatusFor(x,y));
                 g.setColor(stateColor);
                 g.drawLine(x,y,x,y);
             }
         }
+    }
+
+    private Color getColorForCellStatus(int cellStatus){
+        int red = 0;
+        int green = 0;
+        int blue = cellStatus * 3 + 32;
+        blue = Math.min(blue,255);
+        Color stateColor = new Color(red, green, blue);
+        return stateColor;
     }
 
     public void update(Graphics g) {
