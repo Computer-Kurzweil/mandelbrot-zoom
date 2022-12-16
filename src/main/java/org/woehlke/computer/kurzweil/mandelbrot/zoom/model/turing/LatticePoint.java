@@ -78,7 +78,7 @@ public class LatticePoint {
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "LatticePoint{" +
             "x=" + x +
             ", y=" + y +
             '}';

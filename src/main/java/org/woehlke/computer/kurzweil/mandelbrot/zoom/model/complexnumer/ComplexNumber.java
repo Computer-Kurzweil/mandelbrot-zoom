@@ -1,5 +1,8 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.complexnumer;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
 /**
@@ -15,8 +18,8 @@ import java.util.Objects;
  *
  * Created by tw on 18.08.15.
  */
-//@Getter
-//@Setter
+@Getter
+@Setter
 public class ComplexNumber {
 
     private volatile double realX;
@@ -28,14 +31,6 @@ public class ComplexNumber {
 
     public final static int MAX_ITERATIONS = 128;
     private final static double DIVERGENCE_THRESHOLD = 4.0d;
-
-    public double getRealX() {
-        return realX;
-    }
-
-    public double getImgY() {
-        return imgY;
-    }
 
     public ComplexNumber() {
         this.realX = 0.0d;
