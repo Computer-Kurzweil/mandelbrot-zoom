@@ -65,7 +65,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         this.model = new ApplicationModel(config,this);
         this.canvas = new ApplicationCanvas(model);
         this.controller = new ControllerThread(model, this);
-        this. panelSubtitle = new PanelSubtitle(config.getMandelbrotJulia().getView().getSubtitle());
+        this.panelSubtitle = new PanelSubtitle(config.getMandelbrotJulia().getView().getSubtitle());
         this.panelCopyright = new PanelCopyright(config.getMandelbrotJulia().getView().getCopyright());
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         rootPane.setLayout(layout);
