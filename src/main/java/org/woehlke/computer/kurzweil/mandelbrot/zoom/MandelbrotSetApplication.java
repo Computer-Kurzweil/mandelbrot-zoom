@@ -15,11 +15,16 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  */
 public class MandelbrotSetApplication {
 
+    private final ApplicationFrame frame;
+
     private MandelbrotSetApplication() {
         String conf = "application.yml";
         String jarPath = "target/mandelbrot-zoom.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
-        ApplicationFrame frame = new ApplicationFrame(config);
+        frame = new ApplicationFrame(config);
+    }
+
+    public void start(){
         frame.start();
     }
 
@@ -29,5 +34,6 @@ public class MandelbrotSetApplication {
      */
     public static void main(String[] args) {
         MandelbrotSetApplication application = new MandelbrotSetApplication();
+        application.start();
     }
 }
