@@ -6,6 +6,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.canvas.ApplicationCanvas;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels.PanelButtons;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels.PanelCopyright;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels.PanelSubtitle;
 
@@ -52,7 +53,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private final static long serialVersionUID = 242L;
 
     private final PanelSubtitle panelSubtitle;
-    private final PanelCopyright panelCopyright;
+    private final PanelButtons panelCopyright;
 
     private volatile ControllerThread controller;
     private volatile ApplicationCanvas canvas;
@@ -66,7 +67,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
         this.canvas = new ApplicationCanvas(model);
         this.controller = new ControllerThread(model, this);
         this.panelSubtitle = new PanelSubtitle(config.getMandelbrotJulia().getView().getSubtitle());
-        this.panelCopyright = new PanelCopyright(config.getMandelbrotJulia().getView().getCopyright());
+        this.panelCopyright = new PanelButtons(model, this, config);
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         rootPane.setLayout(layout);
         rootPane.add(panelSubtitle);
