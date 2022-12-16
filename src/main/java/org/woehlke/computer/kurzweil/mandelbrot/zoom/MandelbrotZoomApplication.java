@@ -13,11 +13,11 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
  */
-public class MandelbrotSetApplication {
+public class MandelbrotZoomApplication {
 
     private final ApplicationFrame frame;
 
-    private MandelbrotSetApplication() {
+    private MandelbrotZoomApplication() {
         String conf = "application.yml";
         String jarPath = "target/mandelbrot-zoom.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
@@ -33,7 +33,7 @@ public class MandelbrotSetApplication {
      * @param args CLI Parameter
      */
     public static void main(String[] args) {
-        MandelbrotSetApplication application = new MandelbrotSetApplication();
+        MandelbrotZoomApplication application = new MandelbrotZoomApplication();
         application.start();
     }
 }
