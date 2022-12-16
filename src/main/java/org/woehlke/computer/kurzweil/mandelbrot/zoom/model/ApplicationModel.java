@@ -53,7 +53,7 @@ public class ApplicationModel {
 
     public synchronized boolean click(LatticePoint c) {
         boolean repaint = true;
-        complexNumberPlane.zoomIn(c);
+        //complexNumberPlane.zoomIn(c);
         return repaint;
     }
 

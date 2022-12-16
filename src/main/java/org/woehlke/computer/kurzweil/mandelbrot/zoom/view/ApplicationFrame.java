@@ -138,16 +138,16 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     public void showMeInit() {
         pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double width = this.rootPane.getWidth();
-        double height  = this.canvas.getHeight() + 180;
-        double startX = (screenSize.getWidth() - width) / 2d;
-        double startY = (screenSize.getHeight() - height) / 2d;
-        int myheight = Double.valueOf(height).intValue();
-        int mywidth = Double.valueOf(width).intValue();
-        int mystartX = Double.valueOf(startX).intValue();
-        int mystartY = Double.valueOf(startY).intValue();
-        this.rectangleBounds = new Rectangle(mystartX, mystartY, mywidth, myheight);
-        this.dimensionSize = new Dimension(mywidth, myheight);
+        double windowWidth = this.rootPane.getWidth();
+        double windowHeight  = this.canvas.getHeight() + 180;
+        double startX = (screenSize.getWidth() - windowWidth) / 2d;
+        double startY = (screenSize.getHeight() - windowHeight) / 2d;
+        int myHeight = Double.valueOf(windowHeight).intValue();
+        int myWidth = Double.valueOf(windowWidth).intValue();
+        int myStartX = Double.valueOf(startX).intValue();
+        int myStartY = Double.valueOf(startY).intValue();
+        this.rectangleBounds = new Rectangle(myStartX, myStartY, myWidth, myHeight);
+        this.dimensionSize = new Dimension(myWidth, myHeight);
         this.setBounds(this.rectangleBounds);
         this.setSize(this.dimensionSize);
         this.setPreferredSize(this.dimensionSize);

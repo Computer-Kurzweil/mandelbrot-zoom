@@ -32,7 +32,7 @@ public class TuringPositions {
     public void start() {
         this.steps = 0;
         int x=(this.worldDimensions.getX()-2);
-        int y=((this.worldDimensions.getY()/2)+5);
+        int y=((this.worldDimensions.getY()/2)+11);
         this.turingPosition = new LatticePoint(x,y);
         this.turingDirection = TuringDirection.LEFT;
     }
