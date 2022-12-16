@@ -11,14 +11,14 @@ import static org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.TuringP
 
 public class TuringTuringPhaseStateMachineEnumTest {
 
-    private TuringPhaseStateMachine turingPhaseStateMachine = new TuringPhaseStateMachine();
+    private TuringPhaseState turingPhaseStateMachine = new TuringPhaseState();
 
     public static Logger log = Logger.getLogger(TuringPositionsTest.class.getName());
 
     @Test
     public void startTest(){
         log.info("startTest start");
-        turingPhaseStateMachine = new TuringPhaseStateMachine();
+        turingPhaseStateMachine = new TuringPhaseState();
         assertEquals(turingPhaseStateMachine.getTuringPhase(),SEARCH_THE_SET);
         turingPhaseStateMachine.start();
         assertEquals(turingPhaseStateMachine.getTuringPhase(),SEARCH_THE_SET);
@@ -28,7 +28,7 @@ public class TuringTuringPhaseStateMachineEnumTest {
     @Test
     public void finishGoToSetTest(){
         log.info("finishGoToSetTest start");
-        turingPhaseStateMachine = new TuringPhaseStateMachine();
+        turingPhaseStateMachine = new TuringPhaseState();
         turingPhaseStateMachine.start();
         assertEquals(turingPhaseStateMachine.getTuringPhase(),SEARCH_THE_SET);
         turingPhaseStateMachine.finishSearchTheSet();
@@ -39,7 +39,7 @@ public class TuringTuringPhaseStateMachineEnumTest {
     @Test
     public void finishWalkAroundTest() {
         log.info("finishWalkAroundTest start");
-        turingPhaseStateMachine = new TuringPhaseStateMachine();
+        turingPhaseStateMachine = new TuringPhaseState();
         turingPhaseStateMachine.start();
         turingPhaseStateMachine.finishSearchTheSet();
         assertEquals(turingPhaseStateMachine.getTuringPhase(),WALK_AROUND_THE_SET);
@@ -51,7 +51,7 @@ public class TuringTuringPhaseStateMachineEnumTest {
     @Test
     public void finishFillTheOutsideWithColorsTest() {
         log.info("finishFillTheOutsideWithColorsTest start");
-        turingPhaseStateMachine = new TuringPhaseStateMachine();
+        turingPhaseStateMachine = new TuringPhaseState();
         turingPhaseStateMachine.start();
         turingPhaseStateMachine.finishSearchTheSet();
         turingPhaseStateMachine.finishWalkAround();

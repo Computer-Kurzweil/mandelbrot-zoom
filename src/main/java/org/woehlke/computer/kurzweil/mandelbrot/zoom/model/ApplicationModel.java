@@ -1,115 +1,90 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model;
 
-import lombok.Getter;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.complexnumer.ComplexNumberPlane;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.LatticePoint;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.TuringPhase;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.TuringPhaseStateMachine;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.TuringPositions;
+import lombok.extern.slf4j.Slf4j;
+
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.state.ApplicationStateMachine;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.MandelbrotTuringMachine;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
- * (C) 2006 - 2015 Thomas Woehlke.
+ * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
  *
  * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
- * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
- * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
+ * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
- * @see ComplexNumberPlane
- * @see TuringPositions
- * @see TuringPhase
- * @see TuringPhaseStateMachine
+ * @see GaussianNumberPlane
+ * @see MandelbrotTuringMachine
+ * @see ApplicationStateMachine
  *
- * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties
- * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame
+ * @see ComputerKurzweilProperties
+ * @see ApplicationFrame
  *
  * Created by tw on 16.12.2019.
  */
-@Getter
+@Slf4j
 public class ApplicationModel {
 
-    private final ApplicationFrame tab;
+    private volatile GaussianNumberPlane gaussianNumberPlane;
+    private volatile MandelbrotTuringMachine mandelbrotTuringMachine;
+    private volatile ApplicationStateMachine applicationStateMachine;
 
-    private volatile ComplexNumberPlane complexNumberPlane;
-    private volatile TuringPositions turingPositions;
-    private volatile TuringPhaseStateMachine turingPhaseStateMachine;
+    private volatile ComputerKurzweilProperties config;
+    private volatile ApplicationFrame frame;
 
-
-    public ApplicationModel(ApplicationFrame tab) {
-        this.tab = tab;
-        this.turingPositions = new TuringPositions(this.tab.getConfig().getWorldDimensions());
-        this.complexNumberPlane = new ComplexNumberPlane(this.tab);
-        this.complexNumberPlane = this.getComplexNumberPlane();
-        this.turingPhaseStateMachine = new TuringPhaseStateMachine();
+    public ApplicationModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
+        this.config = config;
+        this.frame = frame;
+        this.gaussianNumberPlane = new GaussianNumberPlane(this);
+        this.mandelbrotTuringMachine = new MandelbrotTuringMachine(this);
+        this.applicationStateMachine = new ApplicationStateMachine();
     }
 
-    public void start() {
-        this.turingPhaseStateMachine.start();
-        this.complexNumberPlane.start();
-        this.turingPositions.start();
-    }
-
-    public synchronized boolean click(LatticePoint c) {
+    public synchronized boolean click(Point c) {
+        applicationStateMachine.click();
         boolean repaint = true;
-        //complexNumberPlane.zoomIn(c);
+        this.zoomIn();
         return repaint;
-    }
-
-    public void zoomOut() {
-        complexNumberPlane.zoomOut();
-    }
-
-    public synchronized int getCellStatusFor(int x, int y) {
-        return complexNumberPlane.getCellStatusFor(x, y);
     }
 
     public synchronized boolean step() {
-        boolean repaint = true;
-        switch(turingPhaseStateMachine.getTuringPhase()){
-            case SEARCH_THE_SET:
-                stepGoToSet();
-                repaint=false;
+        boolean repaint = false;
+        switch (applicationStateMachine.getApplicationState()) {
+            case MANDELBROT:
+                repaint = mandelbrotTuringMachine.step();
                 break;
-            case WALK_AROUND_THE_SET:
-                stepWalkAround();
-                break;
-            case FILL_THE_OUTSIDE_WITH_COLOR:
-                fillTheOutsideWithColors();
-                break;
-            case FINISHED:
-            default:
-                repaint=false;
+            case JULIA_SET:
                 break;
         }
         return repaint;
     }
 
-    private void stepGoToSet(){
-        if(this.complexNumberPlane.isInMandelbrotSet(this.turingPositions.getTuringPosition())){
-            this.turingPositions.markFirstSetPosition();
-            this.turingPhaseStateMachine.finishSearchTheSet();
-        } else {
-            this.turingPositions.goForward();
-        }
+    public void zoomIn(){
+        this.gaussianNumberPlane.zoomIn();
     }
 
-    private void stepWalkAround(){
-        if(complexNumberPlane.isInMandelbrotSet(this.turingPositions.getTuringPosition())){
-            this.turingPositions.turnRight();
-        } else {
-            this.turingPositions.turnLeft();
-        }
-        this.turingPositions.goForward();
-        if(this.turingPositions.isFinishedWalkAround()){
-            this.turingPhaseStateMachine.finishWalkAround();
-        }
+    public void zoomOut(){
+        this.gaussianNumberPlane.zoomOut();
     }
 
-    private void fillTheOutsideWithColors(){
-        this.complexNumberPlane.fillTheOutsideWithColors();
-        this.turingPhaseStateMachine.finishFillTheOutsideWithColors();
+    public synchronized int getCellStatusFor(int x, int y) {
+        return gaussianNumberPlane.getCellStatusFor(x, y);
+    }
+
+    public Point getWorldDimensions() {
+        int scale = config.getMandelbrotZoom().getView().getScale();
+        int width = scale * config.getMandelbrotJulia().getView().getWidth();
+        int height = scale * config.getMandelbrotJulia().getView().getHeight();
+        return new Point(width, height);
+    }
+
+    public GaussianNumberPlane getGaussianNumberPlane() {
+        return gaussianNumberPlane;
     }
 
 }

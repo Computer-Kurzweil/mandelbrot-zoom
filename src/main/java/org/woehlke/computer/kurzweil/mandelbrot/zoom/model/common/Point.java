@@ -1,8 +1,4 @@
-package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
-
-import lombok.Getter;
-import lombok.Setter;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.complexnumer.ComplexNumberPlane;
+package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common;
 
 import java.util.Objects;
 
@@ -12,30 +8,26 @@ import java.util.Objects;
  * @author Thomas Woehlke
  *
  * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
- * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
- * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
- *
- * @see ComplexNumberPlane
+ * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
  * Date: 04.02.2006
  * Time: 23:47:05
  */
-@Getter
-@Setter
-public class LatticePoint {
+public class Point {
 
     private volatile int x = 0;
     private volatile int y = 0;
 
-    public LatticePoint() {
+    public Point() {
     }
 
-    public LatticePoint(LatticePoint p) {
+    public Point(Point p) {
         this.x = p.getX();
         this.y = p.getY();
     }
 
-    public LatticePoint(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -59,16 +51,31 @@ public class LatticePoint {
     public int getWidth(){
         return x;
     }
-
     public int getHeight() { return y; }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof LatticePoint)) return false;
-        LatticePoint latticePoint = (LatticePoint) o;
-        return getX() == latticePoint.getX() &&
-            getY() == latticePoint.getY();
+        if (!(o instanceof Point)) return false;
+        Point point = (Point) o;
+        return getX() == point.getX() &&
+            getY() == point.getY();
     }
 
     @Override
@@ -78,7 +85,7 @@ public class LatticePoint {
 
     @Override
     public String toString() {
-        return "LatticePoint{" +
+        return "Point{" +
             "x=" + x +
             ", y=" + y +
             '}';

@@ -1,39 +1,39 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
 
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
+
 /**
  * Mandelbrot Set drawn by a Turing Machine.
  * (C) 2006 - 2022 Thomas Woehlke.
  * @author Thomas Woehlke
  *
  * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
- * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
- * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
+ * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-julia">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
- * @see LatticePoint
+ * @see Point
  * @see TuringDirection
  *
  * Created by tw on 16.12.2019.
  */
 public class TuringPositions {
 
-    private volatile LatticePoint firstSetPosition;
-    private volatile LatticePoint worldDimensions;
+    private volatile Point turingPosition;
+    private volatile Point worldDimensions;
+    private volatile Point firstSetPosition;
 
-    private volatile LatticePoint turingPosition;
     private volatile TuringDirection turingDirection;
 
     private volatile int steps;
 
-    public TuringPositions(LatticePoint worldDimensions) {
+    public TuringPositions(Point worldDimensions) {
         this.worldDimensions = worldDimensions;
         start();
     }
 
     public void start() {
         this.steps = 0;
-        int x=(this.worldDimensions.getX()-2);
-        int y=((this.worldDimensions.getY()/2)+11);
-        this.turingPosition = new LatticePoint(x,y);
+        this.turingPosition = new Point((worldDimensions.getX()-2),(worldDimensions.getY()/2+11));
         this.turingDirection = TuringDirection.LEFT;
     }
 
@@ -42,7 +42,7 @@ public class TuringPositions {
         this.steps = 0;
     }
 
-    public synchronized LatticePoint getTuringPosition() {
+    public synchronized Point getTuringPosition() {
         return turingPosition;
     }
 
