@@ -28,19 +28,22 @@ public class PanelButtons extends JPanel implements ActionListener {
 
     final static long serialVersionUID = 242L;
 
+    private volatile JLabel copyright;
     private volatile JButton zoomOut;
     private volatile ApplicationModel model;
 
     public PanelButtons(ApplicationModel model) {
         this.model = model;
-        this.add(new JLabel(model.getConfig().getMandelbrotZoom().getView().getCopyright()));
+        this.copyright = new JLabel(model.getConfig().getMandelbrotZoom().getView().getCopyright());
         this.zoomOut = new JButton(model.getConfig().getMandelbrotZoom().getView().getButtonsZoomOut());
-        this.zoomOut.addActionListener(this);
-        int align = FlowLayout.CENTER;
-        int hgap = 2;
+        int hgap = 16;
         int vgap = 2;
-        this.setLayout(new FlowLayout(align,hgap, vgap));
-        this.add(zoomOut);
+        this.copyright.setLayout(new FlowLayout( FlowLayout.RIGHT, hgap, vgap));
+        this.zoomOut.setLayout(new FlowLayout( FlowLayout.LEFT, hgap, vgap));
+        this.setLayout(new FlowLayout( FlowLayout.CENTER, hgap, vgap));
+        this.add(this.copyright);
+        this.add(this.zoomOut);
+        this.zoomOut.addActionListener(this);
     }
 
     /**
@@ -51,6 +54,7 @@ public class PanelButtons extends JPanel implements ActionListener {
         if(ae.getSource() == this.zoomOut){
             this.model.zoomOut();
             this.model.getFrame().getCanvas().repaint();
+            this.model.getFrame().repaint();
         }
     }
 }
