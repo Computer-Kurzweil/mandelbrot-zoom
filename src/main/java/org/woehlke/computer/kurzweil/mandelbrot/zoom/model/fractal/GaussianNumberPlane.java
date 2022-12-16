@@ -1,6 +1,5 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal;
 
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
@@ -60,7 +59,7 @@ public class GaussianNumberPlane implements Serializable {
 
     public GaussianNumberPlane(ApplicationFrame tab) {
         this.tab = tab;
-        this.worldDimensions = tab.getModel().getWorldDimensions();
+        this.worldDimensions = tab.getConfig().getWorldDimensions();
         this.lattice = new int[worldDimensions.getWidth()][worldDimensions.getHeight()];
         this.complexWorldDimensions = new ComplexNumber(
             complexWorldDimensionRealX,
@@ -74,6 +73,7 @@ public class GaussianNumberPlane implements Serializable {
             complexCenterForJuliaRealX,
             complexCenterForJuliaImgY
         );
+        setModeZoom();
         start();
     }
 
@@ -95,21 +95,7 @@ public class GaussianNumberPlane implements Serializable {
         return (lattice[x][y])<0?0:lattice[x][y];
     }
 
-    private synchronized ComplexNumber getComplexNumberFromLatticeCoordsForMandelbrot(Point turingPosition) {
-        double realX = (
-            complexCenterForMandelbrot.getReal()
-            + ( complexWorldDimensions.getReal() * turingPosition.getX() )
-            / worldDimensions.getX()
-        );
-        double imgY = (
-            complexCenterForMandelbrot.getImg()
-            + ( complexWorldDimensions.getImg() * turingPosition.getY() )
-            / worldDimensions.getY()
-        );
-        return new ComplexNumber(realX,imgY);
-    }
-
-    private synchronized ComplexNumber getComplexNumberFromLatticeCoordsForZoomedMandelbrot(Point turingPosition) {
+    private synchronized ComplexNumber getComplexNumberFromLatticeCoords(Point turingPosition) {
         double realX = (
             ( complexCenterForMandelbrot.getReal() / this.getZoomLevel() )
             + getZoomCenter().getReal()
@@ -125,14 +111,8 @@ public class GaussianNumberPlane implements Serializable {
         return new ComplexNumber(realX,imgY);
     }
 
-    public synchronized boolean isInZooomedMandelbrotSet(Point turingPosition) {
-        ComplexNumber position = this.getComplexNumberFromLatticeCoordsForZoomedMandelbrot(turingPosition);
-        lattice[turingPosition.getX()][turingPosition.getY()] = position.computeMandelbrotSet();
-        return position.isInMandelbrotSet();
-    }
-
     public synchronized boolean isInMandelbrotSet(Point turingPosition) {
-        ComplexNumber position = this.getComplexNumberFromLatticeCoordsForMandelbrot(turingPosition);
+        ComplexNumber position = this.getComplexNumberFromLatticeCoords(turingPosition);
         lattice[turingPosition.getX()][turingPosition.getY()] = position.computeMandelbrotSet();
         return position.isInMandelbrotSet();
     }
@@ -147,15 +127,15 @@ public class GaussianNumberPlane implements Serializable {
         }
     }
 
-    public void zoomIntoTheMandelbrotSet(Point zoomPoint) {
+    public void zoomIn(Point zoomPoint) {
         //log.info("zoomIntoTheMandelbrotSet: "+ zoomPoint +" - old:  "+this.getZoomCenter());
         this.inceaseZoomLevel();
         if(this.getZoomLevel() == 2){
             ComplexNumber complexCenter = new ComplexNumber(this.complexCenterForMandelbrot);
             complexCenterForZoomedMandelbrot.push(complexCenter);
-            this.setZoomCenter(getComplexNumberFromLatticeCoordsForMandelbrot(zoomPoint));
+            this.setZoomCenter(getComplexNumberFromLatticeCoords(zoomPoint));
         } else {
-            this.setZoomCenter(getComplexNumberFromLatticeCoordsForZoomedMandelbrot(zoomPoint));
+            this.setZoomCenter(getComplexNumberFromLatticeCoords(zoomPoint));
         }
         complexCenterForZoomedMandelbrot.push(this.getZoomCenter());
         //log.info("zoomPoint:     "+ zoomPoint);
@@ -163,12 +143,12 @@ public class GaussianNumberPlane implements Serializable {
         for(int y = 0; y < worldDimensions.getY(); y++){
             for(int x = 0; x < worldDimensions.getX(); x++){
                 Point p = new Point(x, y);
-                this.isInZooomedMandelbrotSet(p);
+                this.isInMandelbrotSet(p);
             }
         }
     }
 
-    public void zoomOutOfTheMandelbrotSet() {
+    public void zoomOut() {
         //log.info("zoomOutOfTheMandelbrotSet: " + this.getZoomCenter());
         if(this.getZoomLevel()>1){
             this.deceaseZoomLevel();
@@ -178,7 +158,7 @@ public class GaussianNumberPlane implements Serializable {
         for(int y = 0; y < worldDimensions.getY(); y++){
             for(int x = 0; x < worldDimensions.getX(); x++){
                 Point p = new Point(x, y);
-                this.isInZooomedMandelbrotSet(p);
+                this.isInMandelbrotSet(p);
             }
         }
     }

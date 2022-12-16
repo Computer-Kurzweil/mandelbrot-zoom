@@ -45,7 +45,7 @@ public class ApplicationModel {
     }
 
     public synchronized boolean click(Point c) {
-        gaussianNumberPlane.zoomIntoTheMandelbrotSet(c);
+        gaussianNumberPlane.zoomIn(c);
         boolean repaint = true;
         return repaint;
     }
@@ -56,18 +56,11 @@ public class ApplicationModel {
     }
 
     public void zoomOut() {
-        gaussianNumberPlane.zoomOutOfTheMandelbrotSet();
+        gaussianNumberPlane.zoomOut();
     }
 
     public synchronized int getCellStatusFor(int x, int y) {
         return gaussianNumberPlane.getCellStatusFor(x, y);
-    }
-
-    public Point getWorldDimensions() {
-        int scale = config.getMandelbrotZoom().getView().getScale();
-        int width = scale * config.getMandelbrotZoom().getView().getWidth();
-        int height = scale * config.getMandelbrotZoom().getView().getHeight();
-        return new Point(width, height);
     }
 
 }

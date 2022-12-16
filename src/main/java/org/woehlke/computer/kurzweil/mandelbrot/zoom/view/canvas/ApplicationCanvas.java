@@ -37,8 +37,8 @@ public class ApplicationCanvas extends JComponent {
         this.tab = tab;
         this.model = this.tab.getModel();
         this.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
-        int width = this.model.getWorldDimensions().getWidth();
-        int height = this.model.getWorldDimensions().getHeight();
+        int width = this.tab.getConfig().getWorldDimensions().getWidth();
+        int height = this.tab.getConfig().getWorldDimensions().getHeight();
         this.preferredSize = new Dimension(width, height);
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
@@ -48,8 +48,8 @@ public class ApplicationCanvas extends JComponent {
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
-        for(int y = 0; y < model.getWorldDimensions().getY(); y++){
-            for(int x = 0; x < model.getWorldDimensions().getX(); x++){
+        for(int y = 0; y < this.tab.getConfig().getWorldDimensions().getY(); y++){
+            for(int x = 0; x < this.tab.getConfig().getWorldDimensions().getX(); x++){
                 Color stateColor = getColorForCellStatus(model.getCellStatusFor(x,y));
                 g.setColor(stateColor);
                 g.drawLine(x,y,x,y);

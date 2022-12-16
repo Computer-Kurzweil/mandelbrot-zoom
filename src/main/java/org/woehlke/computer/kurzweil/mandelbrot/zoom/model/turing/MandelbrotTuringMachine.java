@@ -32,7 +32,7 @@ public class MandelbrotTuringMachine {
         this.tab = tab;
         this.gaussianNumberPlane = tab.getModel().getGaussianNumberPlane();
         this.turingPhaseState = new TuringPhaseState();
-        this.turingPositions = new TuringPositions(tab.getModel().getWorldDimensions());
+        this.turingPositions = new TuringPositions(tab.getConfig().getWorldDimensions());
     }
 
     public void start() {
