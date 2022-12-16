@@ -9,7 +9,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see MandelbrotTuringMachine
+ * @see LatticeTuringMachine
  *
  * Created by tw on 18.08.15.
  */

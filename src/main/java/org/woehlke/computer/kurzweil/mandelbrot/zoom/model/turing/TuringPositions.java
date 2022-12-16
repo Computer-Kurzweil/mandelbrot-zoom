@@ -1,7 +1,5 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
 
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
-
 /**
  * Mandelbrot Set drawn by a Turing Machine.
  * (C) 2006 - 2022 Thomas Woehlke.
@@ -11,31 +9,32 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see Point
+ * @see LatticePoint
  * @see TuringDirection
  *
  * Created by tw on 16.12.2019.
  */
 public class TuringPositions {
 
-    private volatile Point turingPosition;
-    private volatile Point worldDimensions;
-    private volatile Point firstSetPosition;
+    private volatile LatticePoint firstSetPosition;
+    private volatile LatticePoint worldDimensions;
 
+    private volatile LatticePoint turingPosition;
     private volatile TuringDirection turingDirection;
 
     private volatile int steps;
 
-    public TuringPositions(Point worldDimensions) {
+    public TuringPositions(LatticePoint worldDimensions) {
         this.worldDimensions = worldDimensions;
-        this.steps = 0;
-        int x=(worldDimensions.getX()-2);
-        int y=(worldDimensions.getY()/2+11);
-        this.turingPosition = new Point(x,y);
-        this.turingDirection = TuringDirection.LEFT;
+        start();
     }
 
     public void start() {
+        this.steps = 0;
+        int x=(this.worldDimensions.getX()-2);
+        int y=(this.worldDimensions.getY()/2+11);
+        this.turingPosition = new LatticePoint(x,y);
+        this.turingDirection = TuringDirection.LEFT;
     }
 
     public synchronized void markFirstSetPosition(){
@@ -43,7 +42,7 @@ public class TuringPositions {
         this.steps = 0;
     }
 
-    public synchronized Point getTuringPosition() {
+    public synchronized LatticePoint getTuringPosition() {
         return turingPosition;
     }
 

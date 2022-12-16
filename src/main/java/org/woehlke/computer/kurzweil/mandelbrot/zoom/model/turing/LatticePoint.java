@@ -1,4 +1,8 @@
-package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common;
+package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.complexnumer.ComplexNumberPlane;
 
 import java.util.Objects;
 
@@ -11,25 +15,27 @@ import java.util.Objects;
  * @see <a href="https://github.com/Computer-Kurzweil/mandelbrot-zoom">Github Repository</a>
  * @see <a href="https://java.woehlke.org/mandelbrot-zoom/">Maven Project Repository</a>
  *
- * @see org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane
+ * @see ComplexNumberPlane
  *
  * Date: 04.02.2006
  * Time: 23:47:05
  */
-public class Point {
+@Getter
+@Setter
+public class LatticePoint {
 
     private volatile int x = 0;
     private volatile int y = 0;
 
-    public Point() {
+    public LatticePoint() {
     }
 
-    public Point(Point p) {
+    public LatticePoint(LatticePoint p) {
         this.x = p.getX();
         this.y = p.getY();
     }
 
-    public Point(int x, int y) {
+    public LatticePoint(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -53,31 +59,16 @@ public class Point {
     public int getWidth(){
         return x;
     }
+
     public int getHeight() { return y; }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Point)) return false;
-        Point point = (Point) o;
-        return getX() == point.getX() &&
-            getY() == point.getY();
+        if (!(o instanceof LatticePoint)) return false;
+        LatticePoint latticePoint = (LatticePoint) o;
+        return getX() == latticePoint.getX() &&
+            getY() == latticePoint.getY();
     }
 
     @Override
