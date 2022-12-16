@@ -28,13 +28,13 @@ public class ApplicationCanvas extends JComponent {
 
     private final static long serialVersionUID = 242L;
 
-    private volatile ApplicationModel app;
+    private volatile ApplicationModel model;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(ApplicationModel app) {
-        this.app = app;
-        int width = this.app.getWorldDimensions().getWidth();
-        int height = this.app.getWorldDimensions().getHeight();
+    public ApplicationCanvas(ApplicationModel model) {
+        this.model = model;
+        int width = this.model.getWorldDimensions().getWidth();
+        int height = this.model.getWorldDimensions().getHeight();
         this.preferredSize = new Dimension(width, height);
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
@@ -44,9 +44,9 @@ public class ApplicationCanvas extends JComponent {
         this.setSize(this.preferredSize);
         this.setPreferredSize(preferredSize);
         super.paintComponent(g);
-        for(int y = 0; y < app.getWorldDimensions().getY(); y++){
-            for(int x = 0; x < app.getWorldDimensions().getX(); x++){
-                Color stateColor = getColorForCellStatus(app.getCellStatusFor(x,y));
+        for(int y = 0; y < model.getWorldDimensions().getY(); y++){
+            for(int x = 0; x < model.getWorldDimensions().getX(); x++){
+                Color stateColor = getColorForCellStatus(model.getCellStatusFor(x,y));
                 g.setColor(stateColor);
                 g.drawLine(x,y,x,y);
             }
