@@ -2,7 +2,6 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumberPlane;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -15,7 +14,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  *
  * @see GaussianNumberPlane
  * @see TuringPositions
- * @see TuringPhaseState
+ * @see TuringPhaseStateMachine
  * @see ApplicationModel
  *
  * Date: 28.08.13
@@ -25,25 +24,25 @@ public class MandelbrotTuringMachine {
 
     private volatile GaussianNumberPlane gaussianNumberPlane;
     private volatile TuringPositions turingPositions;
-    private volatile TuringPhaseState turingPhaseState;
+    private volatile TuringPhaseStateMachine turingPhaseStateMachine;
     private final ApplicationModel model;
 
     public MandelbrotTuringMachine(ApplicationModel model) {
         this.model = model;
         this.gaussianNumberPlane = this.model.getGaussianNumberPlane();
-        this.turingPhaseState = new TuringPhaseState();
+        this.turingPhaseStateMachine = new TuringPhaseStateMachine();
         this.turingPositions = new TuringPositions(this.model.getConfig().getWorldDimensions());
     }
 
     public void start() {
-        this.turingPhaseState.start();
+        this.turingPhaseStateMachine.start();
         this.gaussianNumberPlane.start();
         this.turingPositions.start();
     }
 
     public synchronized boolean step() {
         boolean repaint=true;
-        switch(turingPhaseState.getTuringTuringPhase()){
+        switch(turingPhaseStateMachine.getTuringPhase()){
             case SEARCH_THE_SET:
                 stepGoToSet();
                 repaint=false;
@@ -65,7 +64,7 @@ public class MandelbrotTuringMachine {
     private void stepGoToSet(){
         if(this.gaussianNumberPlane.isInMandelbrotSet(this.turingPositions.getTuringPosition())){
             this.turingPositions.markFirstSetPosition();
-            this.turingPhaseState.finishSearchTheSet();
+            this.turingPhaseStateMachine.finishSearchTheSet();
         } else {
             this.turingPositions.goForward();
         }
@@ -79,12 +78,12 @@ public class MandelbrotTuringMachine {
         }
         this.turingPositions.goForward();
         if(this.turingPositions.isFinishedWalkAround()){
-            this.turingPhaseState.finishWalkAround();
+            this.turingPhaseStateMachine.finishWalkAround();
         }
     }
 
     private void fillTheOutsideWithColors(){
         this.gaussianNumberPlane.fillTheOutsideWithColors();
-        this.turingPhaseState.finishFillTheOutsideWithColors();
+        this.turingPhaseStateMachine.finishFillTheOutsideWithColors();
     }
 }

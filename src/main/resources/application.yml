@@ -34,12 +34,15 @@ mandelbrotZoom:
     height: 292
     scale: 3
   model:
-    complexWorldDimensionRealX: 3.2d
-    complexWorldDimensionImgY: 2.34d
-    complexCenterForMandelbrotRealX: -2.2d
-    complexCenterForMandelbrotImgY: -1.17d
-    complexCenterForJuliaRealX: -1.6d
-    complexCenterForJuliaImgY: -1.17d
+    complexWorldDimension:
+      realX: 3.2d
+      imgY: 2.34d
+    complexCenterForMandelbrot:
+      realX: -2.2d
+      imgY: -1.17d
+    complexCenterForJulia:
+      realX: -1.6d
+      imgY:  -1.17d
   control:
     threadSleepTime: 50
 simulatedevolution:

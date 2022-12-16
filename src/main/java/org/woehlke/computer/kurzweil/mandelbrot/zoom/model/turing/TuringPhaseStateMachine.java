@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
 
+import lombok.Getter;
+
 /**
  * Mandelbrot Set drawn by a Turing Machine.
  * (C) 2006 - 2022 Thomas Woehlke.
@@ -13,31 +15,33 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing;
  *
  * Created by tw on 16.12.2019.
  */
-public class TuringPhaseState {
+public class TuringPhaseStateMachine {
 
-    private volatile TuringPhase turingTuringPhase;
+    @Getter
+    private volatile TuringPhase turingPhase;
 
-    public TuringPhaseState() {
-        start();
+    public TuringPhaseStateMachine() {
+        startSearchTheSet();
     }
 
     public void start(){
-        this.turingTuringPhase = TuringPhase.SEARCH_THE_SET;
+        startSearchTheSet();
+    }
+
+    public void startSearchTheSet(){
+        turingPhase = TuringPhase.SEARCH_THE_SET;
     }
 
     public void finishSearchTheSet(){
-        turingTuringPhase = TuringPhase.WALK_AROUND_THE_SET;
+        turingPhase = TuringPhase.WALK_AROUND_THE_SET;
     }
 
     public void finishWalkAround() {
-        turingTuringPhase = TuringPhase.FILL_THE_OUTSIDE_WITH_COLOR;
+        turingPhase = TuringPhase.FILL_THE_OUTSIDE_WITH_COLOR;
     }
 
     public void finishFillTheOutsideWithColors() {
-        turingTuringPhase = TuringPhase.FINISHED;
+        turingPhase = TuringPhase.FINISHED;
     }
 
-    public TuringPhase getTuringTuringPhase() {
-        return turingTuringPhase;
-    }
 }

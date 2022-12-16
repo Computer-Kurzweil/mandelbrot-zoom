@@ -28,13 +28,14 @@ public class TuringPositions {
 
     public TuringPositions(Point worldDimensions) {
         this.worldDimensions = worldDimensions;
-        start();
+        this.steps = 0;
+        int x=(worldDimensions.getX()-2);
+        int y=(worldDimensions.getY()/2+11);
+        this.turingPosition = new Point(x,y);
+        this.turingDirection = TuringDirection.LEFT;
     }
 
     public void start() {
-        this.steps = 0;
-        this.turingPosition = new Point((worldDimensions.getX()-2),(worldDimensions.getY()/2+11));
-        this.turingDirection = TuringDirection.LEFT;
     }
 
     public synchronized void markFirstSetPosition(){

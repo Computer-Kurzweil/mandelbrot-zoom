@@ -229,23 +229,26 @@ public class ComputerKurzweilProperties implements Serializable {
         @Setter
         public static class Model {
 
-            @NotNull
-            private Double complexWorldDimensionRealX;
+            @Valid
+            public Complex complexWorldDimension = new Complex();
 
-            @NotNull
-            private Double complexWorldDimensionImgY;
+            @Valid
+            public Complex complexCenterForMandelbrot = new Complex();
 
-            @NotNull
-            private Double complexCenterForMandelbrotRealX;
+            @Valid
+            public Complex complexCenterForJulia = new Complex();
 
-            @NotNull
-            private Double complexCenterForMandelbrotImgY;
+            @ToString
+            @Getter
+            @Setter
+            public static class Complex {
 
-            @NotNull
-            private Double complexCenterForJuliaRealX;
+                @NotNull
+                private Double realX;
 
-            @NotNull
-            private Double complexCenterForJuliaImgY;
+                @NotNull
+                private Double imgY;
+            }
         }
 
         @ToString
