@@ -64,11 +64,11 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile Dimension dimensionSize;
 
     public ApplicationFrame(ComputerKurzweilProperties config) {
-        super(config.getMandelbrotJulia().getView().getTitle());
+        super(config.getMandelbrotZoom().getView().getTitle());
         this.model = new ApplicationModel(config,this);
         this.canvas = new ApplicationCanvas(model);
         this.controller = new ControllerThread(model, this);
-        this.panelSubtitle = new PanelSubtitle(config.getMandelbrotJulia().getView().getSubtitle());
+        this.panelSubtitle = new PanelSubtitle(config.getMandelbrotZoom().getView().getSubtitle());
         this.panelCopyright = new PanelButtons(model, this, config);
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         rootPane.setLayout(layout);
