@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>mandelbrot-zoom</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Mandelbrot Zoom</name>
@@ -21,7 +21,7 @@
         <connection>scm:git:git@github.com:Computer-Kurzweil/mandelbrot-zoom.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/mandelbrot-zoom.git</developerConnection>
         <url>https://github.com/BloodMoneyApp/mandelbrot-zoom/tree/${project.scm.tag}</url>
-        <tag>mandelbrot-zoom-3.0.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
