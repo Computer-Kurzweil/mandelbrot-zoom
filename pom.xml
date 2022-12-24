@@ -80,7 +80,6 @@
                 <defaultGoal>clean install exec:java</defaultGoal>
             </build>
         </profile>
-
         <profile>
             <id>build</id>
             <activation>
@@ -96,7 +95,6 @@
                 </defaultGoal>
             </build>
         </profile>
-
     </profiles>
 
 </project>
