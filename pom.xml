@@ -13,9 +13,9 @@
     <inceptionYear>2013</inceptionYear>
 
     <scm>
-        <url>https://github.com/Computer-Kurzweil/mandelbrot-zoom.git</url>
         <connection>scm:git:git@github.com:Computer-Kurzweil/mandelbrot-zoom.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/mandelbrot-zoom.git</developerConnection>
+        <url>https://github.com/BloodMoneyApp/mandelbrot-zoom/tree/${project.scm.tag}</url>
         <tag>HEAD</tag>
     </scm>
 
