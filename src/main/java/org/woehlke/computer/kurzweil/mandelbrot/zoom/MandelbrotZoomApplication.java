@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.mandelbrot.zoom;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.MandelbrotZoomFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -15,13 +15,13 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  */
 public class MandelbrotZoomApplication {
 
-    private final ApplicationFrame frame;
+    private final MandelbrotZoomFrame frame;
 
     private MandelbrotZoomApplication() {
         String conf = "application.yml";
         String jarPath = "target/mandelbrot-zoom.jar";
         ComputerKurzweilProperties config = ComputerKurzweilProperties.propertiesFactory(conf,jarPath);
-        frame = new ApplicationFrame(config);
+        frame = new MandelbrotZoomFrame(config);
     }
 
     public void start(){

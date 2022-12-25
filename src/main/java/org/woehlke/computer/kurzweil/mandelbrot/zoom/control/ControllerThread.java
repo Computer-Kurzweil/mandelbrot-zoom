@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.control;
 
 import lombok.extern.slf4j.Slf4j;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.MandelbrotZoomFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -14,7 +14,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * @see <a href="https://java.woehlke.org/mandelbrot-julia/">Maven Project Repository</a>
  *
  * @see ApplicationModel
- * @see ApplicationFrame
+ * @see MandelbrotZoomFrame
  *
  * @see Thread
  * @see Runnable
@@ -26,12 +26,12 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
 public class ControllerThread extends Thread implements Runnable {
 
     private volatile ApplicationModel model;
-    private volatile ApplicationFrame frame;
+    private volatile MandelbrotZoomFrame frame;
 
     private volatile Boolean goOn;
     private final int threadSsleepTime;
 
-    public ControllerThread(ApplicationModel model, ApplicationFrame frame) {
+    public ControllerThread(ApplicationModel model, MandelbrotZoomFrame frame) {
         this.frame = frame;
         this.model = model;
         this.goOn = Boolean.TRUE;

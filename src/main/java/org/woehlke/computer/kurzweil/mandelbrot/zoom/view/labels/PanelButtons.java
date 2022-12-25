@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels;
 
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.MandelbrotZoomFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,10 +15,10 @@ public class PanelButtons extends JPanel implements ActionListener {
 
     private volatile JLabel copyright;
     private volatile JButton zoomOut;
-    private final ApplicationFrame tab;
+    private final MandelbrotZoomFrame tab;
     private final ApplicationModel model;
 
-    public PanelButtons(ApplicationModel model, ApplicationFrame tab, ComputerKurzweilProperties config ) {
+    public PanelButtons(ApplicationModel model, MandelbrotZoomFrame tab, ComputerKurzweilProperties config ) {
         this.tab = tab;
         this.model = model;
         this.copyright = new JLabel(config.getMandelbrotZoom().getView().getCopyright());

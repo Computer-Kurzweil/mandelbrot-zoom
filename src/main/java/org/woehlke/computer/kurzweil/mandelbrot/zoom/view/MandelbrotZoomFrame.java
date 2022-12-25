@@ -44,7 +44,7 @@ import static java.awt.event.MouseEvent.*;
  * Time: 18:47:46
  */
 @Slf4j
-public class ApplicationFrame extends JFrame implements ImageObserver,
+public class MandelbrotZoomFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,
         Accessible,
@@ -63,7 +63,7 @@ public class ApplicationFrame extends JFrame implements ImageObserver,
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
 
-    public ApplicationFrame(ComputerKurzweilProperties config) {
+    public MandelbrotZoomFrame(ComputerKurzweilProperties config) {
         super(config.getMandelbrotZoom().getView().getTitle());
         this.model = new ApplicationModel(config,this);
         this.canvas = new ApplicationCanvas(model);

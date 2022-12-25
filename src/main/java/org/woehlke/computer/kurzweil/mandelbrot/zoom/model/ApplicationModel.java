@@ -7,7 +7,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.fractal.GaussianNumbe
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.state.ApplicationStateMachine;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.turing.MandelbrotTuringMachine;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.MandelbrotZoomFrame;
 
 /**
  * Mandelbrot Set drawn by a Turing Machine.
@@ -23,7 +23,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.ApplicationFrame;
  * @see ApplicationStateMachine
  *
  * @see ComputerKurzweilProperties
- * @see ApplicationFrame
+ * @see MandelbrotZoomFrame
  *
  * Created by tw on 16.12.2019.
  */
@@ -35,9 +35,9 @@ public class ApplicationModel {
     private volatile ApplicationStateMachine applicationStateMachine;
 
     private volatile ComputerKurzweilProperties config;
-    private volatile ApplicationFrame frame;
+    private volatile MandelbrotZoomFrame frame;
 
-    public ApplicationModel(ComputerKurzweilProperties config, ApplicationFrame frame) {
+    public ApplicationModel(ComputerKurzweilProperties config, MandelbrotZoomFrame frame) {
         this.config = config;
         this.frame = frame;
         this.gaussianNumberPlane = new GaussianNumberPlane(this);
