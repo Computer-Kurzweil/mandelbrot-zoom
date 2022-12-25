@@ -5,7 +5,7 @@ import org.woehlke.computer.kurzweil.mandelbrot.zoom.config.ComputerKurzweilProp
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.control.ControllerThread;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.ApplicationModel;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.model.common.Point;
-import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.canvas.ApplicationCanvas;
+import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.canvas.MandelbrotZoomCanvas;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels.PanelButtons;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels.PanelCopyright;
 import org.woehlke.computer.kurzweil.mandelbrot.zoom.view.labels.PanelSubtitle;
@@ -26,7 +26,7 @@ import static java.awt.event.MouseEvent.*;
  * @author Thomas Woehlke
  *
  * @see ControllerThread
- * @see ApplicationCanvas
+ * @see MandelbrotZoomCanvas
  * @see ApplicationModel
  * @see PanelSubtitle
  * @see PanelCopyright
@@ -58,7 +58,7 @@ public class MandelbrotZoomFrame extends JFrame implements ImageObserver,
     private final PanelButtons panelCopyright;
 
     private volatile ControllerThread controller;
-    private volatile ApplicationCanvas canvas;
+    private volatile MandelbrotZoomCanvas canvas;
     private volatile ApplicationModel model;
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
@@ -66,7 +66,7 @@ public class MandelbrotZoomFrame extends JFrame implements ImageObserver,
     public MandelbrotZoomFrame(ComputerKurzweilProperties config) {
         super(config.getMandelbrotZoom().getView().getTitle());
         this.model = new ApplicationModel(config,this);
-        this.canvas = new ApplicationCanvas(model);
+        this.canvas = new MandelbrotZoomCanvas(model);
         this.controller = new ControllerThread(model, this);
         this.panelSubtitle = new PanelSubtitle(config.getMandelbrotZoom().getView().getSubtitle());
         this.panelCopyright = new PanelButtons(model, this, config);
@@ -180,7 +180,7 @@ public class MandelbrotZoomFrame extends JFrame implements ImageObserver,
         canvas.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
     }
 
-    public ApplicationCanvas getCanvas() {
+    public MandelbrotZoomCanvas getCanvas() {
         return canvas;
     }
 

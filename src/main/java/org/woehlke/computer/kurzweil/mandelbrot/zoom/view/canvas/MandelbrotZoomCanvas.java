@@ -26,7 +26,7 @@ import java.io.Serial;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class ApplicationCanvas extends JComponent {
+public class MandelbrotZoomCanvas extends JComponent {
 
     @Serial
     private final static long serialVersionUID = 242L;
@@ -34,7 +34,7 @@ public class ApplicationCanvas extends JComponent {
     private volatile ApplicationModel app;
     private volatile Dimension preferredSize;
 
-    public ApplicationCanvas(ApplicationModel app) {
+    public MandelbrotZoomCanvas(ApplicationModel app) {
         this.app = app;
         int width = this.app.getWorldDimensions().getWidth();
         int height = this.app.getWorldDimensions().getHeight();
