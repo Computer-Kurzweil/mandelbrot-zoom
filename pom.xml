@@ -14,7 +14,7 @@
 
     <name>Mandelbrot Zoom</name>
     <description>Computing the Edge of the Mandelbrot Set with a Turing Machine</description>
-    <url>https://java.woehlke.org/mandelbrot-zoom</url>
+    <url>https://java.woehlke.org/kurzweil/mandelbrot-zoom</url>
     <inceptionYear>2013</inceptionYear>
 
     <scm>
@@ -32,7 +32,7 @@
     <distributionManagement>
         <site>
             <id>simulatedevolution.local</id>
-            <url>file://${user.home}/public_html/java/mandelbrot-zoom</url>
+            <url>file://${user.home}/public_html/java/kurzweil/mandelbrot-zoom</url>
         </site>
         <snapshotRepository>
             <id>snapshots</id>
