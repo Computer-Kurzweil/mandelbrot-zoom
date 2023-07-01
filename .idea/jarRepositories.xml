@@ -22,6 +22,11 @@
       <option name="url" value="https://repo1.maven.org/maven2/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="repository.woehlke.org-snapshots" />
+      <option name="name" value="woehlke.org Snapshots Repository" />
+      <option name="url" value="http://localhost:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="sonatype-releases" />
       <option name="name" value="Sonatype Repository" />
       <option name="url" value="http://tw-thinkpad:8081/artifactory/libs-release" />
@@ -87,24 +92,24 @@
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="springio-plugins-release" />
-      <option name="name" value="Spring Plugins Repository" />
-      <option name="url" value="http://tw-thinkpad:8081/artifactory/libs-release" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="jcenter" />
       <option name="name" value="JCenter Repository" />
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="springio-libs-release" />
-      <option name="name" value="Spring Lib Release Repository" />
+      <option name="id" value="springio-plugins-release" />
+      <option name="name" value="Spring Plugins Repository" />
       <option name="url" value="http://tw-thinkpad:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss-ea" />
       <option name="name" value="JBossEA Repository" />
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="springio-libs-release" />
+      <option name="name" value="Spring Lib Release Repository" />
+      <option name="url" value="http://tw-thinkpad:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss-releases" />
@@ -115,6 +120,11 @@
       <option name="id" value="springio-plugins-release" />
       <option name="name" value="Spring Plugins Repository" />
       <option name="url" value="https://repo.spring.io/plugins-release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="repository.woehlke.org-releases" />
+      <option name="name" value="woehlke.org Releases Repository" />
+      <option name="url" value="http://localhost:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss-ea" />
@@ -189,6 +199,11 @@
     <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="libs-release" />
+      <option name="url" value="http://localhost:8081/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Central" />
+      <option name="name" value="Central Repository" />
       <option name="url" value="http://localhost:8081/artifactory/libs-release" />
     </remote-repository>
     <remote-repository>
